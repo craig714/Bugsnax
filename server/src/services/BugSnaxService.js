@@ -8,6 +8,11 @@ class BugsnaxService {
     return bugsnax
   }
 
+  async createBugsnax(bugsnaxData) {
+    const bugsnax = await dbContext.Bugsnax.create(bugsnaxData)
+    console.log(bugsnax)
+    return bugsnax
+  }
 }
 
 
