@@ -10,3 +10,16 @@ export const SauceLocationSchema = new Schema({
     toJSON: { virtuals: true, versionKey: false }
 
   })
+//NOTE - justone true maybe?
+SauceLocationSchema.virtual('sauce', {
+  localField: 'sauceId',
+  foreignField: '_id',
+  ref: 'Sauce',
+  justOne: true
+})
+SauceLocationSchema.virtual('location', {
+  localField: 'locationId',
+  foreignField: '_id',
+  ref: 'Location',
+  justOne: false
+})
