@@ -10,5 +10,7 @@ export const BugsnaxSchema = new Schema({
 },
   {
     timestamps: true,
-    toJSON: { virtuals: true, versionKey: false }
+    toJSON: { virtuals: true, versionKey: false },
+    collection: 'Bugsnax'
+
   })
