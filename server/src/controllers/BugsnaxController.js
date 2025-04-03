@@ -7,7 +7,7 @@ export class BugsnaxController extends BaseController {
     super('api/bugsnax')
     this.router
       .get('', this.getAllBugsnax)
-      .use(Auth0Provider.getAuthorizedUserInfo)
+      // .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createBugsnax)
   }
 
