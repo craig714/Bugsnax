@@ -13,7 +13,7 @@ export const BugsnaxLocationSchema = new Schema({
 
 
 )
-//NOTE - justone true maybe?
+//NOTE - justOne true maybe?
 BugsnaxLocationSchema.virtual('bugsnax', {
   localField: 'bugsnaxId',
   foreignField: '_id',
