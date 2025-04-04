@@ -19,6 +19,16 @@ class SauceService {
     await sauceToEdit.save()
     return sauceToEdit
   }
+  async getSauceById(sauceId) {
+    const sauce = await dbContext.Sauces.findById(sauceId)
+    return sauce
+  }
+  async deleteSauce(sauceId) {
+    const sauceToDelete = await dbContext.Sauces.findById(sauceId)
+    const sauceToDeleteName = sauceToDelete.name
+    await sauceToDelete.deleteOne()
+    return `${sauceToDeleteName} has been deleted`
+  }
 }
 
 export const sauceService = new SauceService

@@ -6,6 +6,7 @@ export class SauceController extends BaseController {
     super('api/sauces')
     this.router
       .get('', this.getAllSauces)
+      .get('/:sauceId', this.getSauceById)
       .post('', this.createSauce)
   }
 
@@ -32,6 +33,36 @@ export class SauceController extends BaseController {
       const sauceId = request.params.sauceId
       const sauceData = request.body
       const sauce = await sauceService.updateSauce(sauceId, sauceData)
+      response.send(sauce)
+    }
+    catch (error) {
+      next(error);
+    }
+  }
+  async getSauceById(request, response, next) {
+    try {
+      const sauceId = request.params.sauceId
+      const sauce = await sauceService.getSauceById(sauceId)
+      response.send(sauce)
+    }
+    catch (error) {
+      next(error);
+    }
+  }
+  // async getSauceByLocation(request, response, next) {
+  //   try {
+  //     const locationId = request.params.locationId
+  //     const sauce = await  
+  //     response.sent(sauce)
+  //   }
+  //   catch (error){
+  //     next(error);
+  //   }
+  // }
+  async deleteSauce(request, response, next) {
+    try {
+      const sauceId = request.params.sauceId
+      const sauce = await sauceService.deleteSauce(sauceId)
       response.send(sauce)
     }
     catch (error) {
