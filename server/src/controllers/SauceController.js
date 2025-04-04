@@ -27,4 +27,15 @@ export class SauceController extends BaseController {
       next(error);
     }
   }
+  async updateSauce(request, response, next) {
+    try {
+      const sauceId = request.params.sauceId
+      const sauceData = request.body
+      const sauce = await sauceService.updateSauce(sauceId, sauceData)
+      response.send(sauce)
+    }
+    catch (error) {
+      next(error);
+    }
+  }
 }
