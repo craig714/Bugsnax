@@ -14,6 +14,26 @@
       "bugsnax",
       "Grumpus",
       "virtuals"
-    ]
+    ],
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#78f287",
+      "activityBar.background": "#78f287",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#988bf4",
+      "activityBarBadge.foreground": "#15202b",
+      "commandCenter.border": "#15202b99",
+      "sash.hoverBorder": "#78f287",
+      "statusBar.background": "#4aed5e",
+      "statusBar.foreground": "#15202b",
+      "statusBarItem.hoverBackground": "#1ce835",
+      "statusBarItem.remoteBackground": "#4aed5e",
+      "statusBarItem.remoteForeground": "#15202b",
+      "titleBar.activeBackground": "#4aed5e",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveBackground": "#4aed5e99",
+      "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#4aed5e"
   }
 }
