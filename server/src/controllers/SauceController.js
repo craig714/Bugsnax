@@ -8,6 +8,8 @@ export class SauceController extends BaseController {
       .get('', this.getAllSauces)
       .get('/:sauceId', this.getSauceById)
       .post('', this.createSauce)
+      .put('/:sauceId', this.updateSauce)
+      .delete('/:sauceId', this.deleteSauce)
   }
 
   async getAllSauces(request, response, next) {
