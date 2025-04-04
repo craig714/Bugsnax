@@ -46,8 +46,8 @@ async function postBug() {
               <input v-model="editableBugData.picture" id="bugPicture" type="text">
             </div>
             <div>
-              <label for="budDescription">Description</label>
-              <input v-model="editableBugData.description" id="budDescription" type="text">
+              <label for="bugDescription">Description</label>
+              <input v-model="editableBugData.description" id="bugDescription" type="text">
             </div>
             <div>
               <label for="bugStrategy">Strategy </label>
