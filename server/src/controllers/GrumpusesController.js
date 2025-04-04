@@ -6,7 +6,8 @@ export class GrumpusesController extends BaseController {
     super('api/grumpus')
     this.router
       .get('', this.getAllGrumpuses)
-      .get(':grumpusId', this.getGrumpusById)
+      .get('/:grumpusId', this.getGrumpusById)
+
       .post('', this.createGrumpus)
   }
 
@@ -29,21 +30,19 @@ export class GrumpusesController extends BaseController {
 
   async getGrumpusById(request, response, next) {
     try {
-
+      const grumpusId = request.params.grumpusId
+      const grumpus = await grumpusesService.getGrumpusById(grumpusId)
+      response.send(grumpus)
     } catch (error) {
       next(error)
     }
   }
-
-
 
   /**
            * @param {import("express").Request} request
            * @param {import("express").Response} response
            * @param {import("express").NextFunction} next
            */
-
-
 
   async createGrumpus(request, response, next) {
     try {
