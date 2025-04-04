@@ -5,7 +5,10 @@ class SauceService {
     const sauce = await dbContext.Sauces.find()
     return sauce
   }
-
+  async createSauce(sauceData) {
+    const sauce = await dbContext.Sauces.create(sauceData)
+    return sauce
+  }
 }
 
 export const sauceService = new SauceService
