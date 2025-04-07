@@ -1,6 +1,8 @@
 export class Bugsnax {
   constructor(data) {
+
     this.id = data.id
+    this.name = data.name
     this.picture = data.picture
     this.description = data.description
     this.strategy = data.strategy

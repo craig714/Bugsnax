@@ -7,6 +7,10 @@ export const AppState = reactive({
   /** @type {import('./models/Account.js').Account} user info from the database*/
   account: null,
 
-  bugsnax: null
+  /** @type {import('./models/Bugsnax.js').Bugsnax[]} user info from the database*/
+  bugsnax: [],
+  /** @type {import('./models/Grumpus.js').Grumpus[]} user info from the database*/
+
+  grumpuses: []
 })
 
