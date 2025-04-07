@@ -7,7 +7,7 @@ import AdminPage from './AdminPage.vue';
 
 <template>
 
-  <AdminPage />
+
 </template>
 
 <style scoped lang="scss">
