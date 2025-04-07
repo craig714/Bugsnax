@@ -56,6 +56,11 @@ const routes = [
     path: '/bugsnax/:bugsnaxId',
     name: 'BugsnaxDetails',
     component: loadPage('BugsnaxDetailsPage')
+  },
+  {
+    path: '/grumpus/:grumpusId',
+    name: 'GrumpusDetails',
+    component: loadPage('GrumpusesDetailsPage')
   }
 ]
 
