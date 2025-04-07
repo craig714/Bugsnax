@@ -5,7 +5,7 @@ class AdminService {
   async postBug(value) {
     const response = await api.post('/bugsnax', value)
     console.log(response);
-    AppState.bug = new BigUint64Array(response.data)
+    AppState.bugsnax = new Bugsnax(response.data)
   }
 
 }
