@@ -2,6 +2,7 @@
 import { AppState } from '@/AppState.js';
 import BugsnaxCard from '@/components/BugsnaxCard.vue';
 import { bugsnaxService } from '@/services/BugsnaxService.js';
+import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 
@@ -21,7 +22,9 @@ async function getAllBugsnax() {
     await bugsnaxService.getAllBugsnax()
   }
   catch (error) {
-    Pop.error(error);
+    Pop.error(error, 'Could not get bugsnax!');
+    logger.error('Could not get bugsnax!', error);
+
   }
 }
 
