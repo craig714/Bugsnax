@@ -6,7 +6,7 @@ import AdminPage from './AdminPage.vue';
 </script>
 
 <template>
-  <svg ref="mapSvg" view-box=""></svg>
+  <img src="/src//assets/img/cw-logo.png" alt="">
   <img src="/src/assets/img/LargeMainMap.png" alt="">
   <img src="/src//assets//img//BoilerBay.svg" alt="" type="button">
 
