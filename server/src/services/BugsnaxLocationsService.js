@@ -2,6 +2,7 @@ import { dbContext } from "../db/DbContext.js"
 
 
 class BugsnaxLocationsService {
+
   async getAllBugsnaxLocations() {
     const bugsnaxLocations = await dbContext.BugsnaxLocations.find()
     return bugsnaxLocations
