@@ -6,8 +6,9 @@ import AdminPage from './AdminPage.vue';
 </script>
 
 <template>
-  <Example />
-  <AdminPage />
+  <img src="/src/assets/img/LargeMainMap.png" alt="">
+  <img src="" alt="">
+
 </template>
 
 <style scoped lang="scss"></style>
