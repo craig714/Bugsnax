@@ -6,7 +6,7 @@ import AdminPage from './AdminPage.vue';
 </script>
 
 <template>
-
+  <div>HI</div>
 
 </template>
 
