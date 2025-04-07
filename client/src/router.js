@@ -21,6 +21,36 @@ const routes = [
     name: 'Account',
     component: loadPage('AccountPage'),
     beforeEnter: authGuard
+  },
+  {
+    path: '/map',
+    name: 'Map',
+    component: loadPage('MapPage')
+  },
+  {
+    path: '/bugsnax',
+    name: 'Bugsnax',
+    component: loadPage('BugsnaxPage')
+  },
+  {
+    path: '/grumpuses',
+    name: 'Grumpuses',
+    component: loadPage('GrumpusesPage')
+  },
+  {
+    path: '/tools',
+    name: 'Tools',
+    component: loadPage('ToolsPage')
+  },
+  {
+    path: '/sauces',
+    name: 'Sauces',
+    component: loadPage('SaucesPage')
+  },
+  {
+    path: '/quests',
+    name: 'Quests',
+    component: loadPage('QuestsPage')
   }
 ]
 
