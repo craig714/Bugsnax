@@ -21,6 +21,15 @@ class SauceLocationsService {
     await sauceLocation.populate('location')
     return sauceLocation
   }
+  async updateSauceLocation(sauceLocationId, sauceLocationData) {
+    const sauceLocationToUpdate = await dbContext.SauceLocations.findById(sauceLocationId).populate('sauce location')
+
+    sauceLocationToUpdate.sauceId = sauceLocationData.sauceId ?? sauceLocationToUpdate.sauceId
+    sauceLocationToUpdate.locationId = sauceLocationData.locationId ?? sauceLocationToUpdate.locationId
+
+    await sauceLocationToUpdate.save()
+    return sauceLocationToUpdate
+  }
 
 }
 
