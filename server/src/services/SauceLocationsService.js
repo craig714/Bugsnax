@@ -11,7 +11,7 @@ class SauceLocationsService {
     const sauceLocations = await dbContext.SauceLocations.find({ locationId: locationId }).populate('sauce location')
     return sauceLocations
   }
-  async getSauceLocationsById(sauceLocationId) {
+  async getSauceLocationById(sauceLocationId) {
     const sauceLocation = (await dbContext.SauceLocations.findById(sauceLocationId)).populate('sauce location')
     return sauceLocation
   }
@@ -29,6 +29,11 @@ class SauceLocationsService {
 
     await sauceLocationToUpdate.save()
     return sauceLocationToUpdate
+  }
+  async deleteSauceLocation(sauceLocationId) {
+    const sauceLocation = await this.getSauceLocationById(sauceLocationId)
+    await sauceLocation.deleteOne()
+    return `Deleted sauceLocation with the id of ${sauceLocationId}, you monster.`
   }
 
 }

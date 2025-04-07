@@ -13,6 +13,7 @@ export class SauceLocationsController extends BaseController {
       // .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createSauceLocations)
       .put('/:sauceLocationId', this.updateSauceLocation)
+      .delete('/:sauceLocationId', this.deleteSauceLocation)
   }
   /**
    * @param {import("express").Request} request
@@ -49,7 +50,7 @@ export class SauceLocationsController extends BaseController {
   async getSauceLocationById(request, response, next) {
     try {
       const sauceLocationId = request.params.sauceLocationId
-      const sauceLocation = await sauceLocationsService.getSauceLocationsById(sauceLocationId)
+      const sauceLocation = await sauceLocationsService.getSauceLocationById(sauceLocationId)
       response.send(sauceLocation)
     } catch (error) {
       next(error)
@@ -79,6 +80,20 @@ export class SauceLocationsController extends BaseController {
       const sauceLocationId = request.params.sauceLocationId
       const sauceLocationData = request.body
       const sauceLocation = await sauceLocationsService.updateSauceLocation(sauceLocationId, sauceLocationData)
+      response.send(sauceLocation)
+    } catch (error) {
+      next(error)
+    }
+  }
+  /**
+   * @param {import("express").Request} request
+   * @param {import("express").Response} response
+   * @param {import("express").NextFunction} next
+   */
+  async deleteSauceLocation(request, response, next) {
+    try {
+      const sauceLocationId = request.params.sauceLocationId
+      const sauceLocation = await sauceLocationsService.deleteSauceLocation(sauceLocationId)
       response.send(sauceLocation)
     } catch (error) {
       next(error)
