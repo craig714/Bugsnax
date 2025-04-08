@@ -19,8 +19,8 @@ watch(theme, () => {
 <template>
   <nav class="navbar navbar-expand-md bg-codeworks border-bottom border-vue arco-font">
     <div class="container gap-2">
-      <RouterLink :to="{ name: 'Home' }" class="d-flex align-items-center text-light navbar-brand">
-        <img alt="logo" src="/img/cw-logo.png" height="45" />
+      <RouterLink :to="{ name: 'Home' }" class="d-flex align-items-center text-light ">
+        <img alt="logo" src="/src/assets/img/Bugsnax_logo.png" height="35" />
         <b class="fs-5 ms-2">Bugsnax Journal</b>
       </RouterLink>
 
