@@ -3,7 +3,11 @@ import { ref } from 'vue';
 
 
 const editableGrumpusData = ref({
-
+  name: '',
+  picture: '',
+  description: '',
+  likes: '',
+  dislikes: '',
 })
 </script>
 

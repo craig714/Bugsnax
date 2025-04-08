@@ -3,7 +3,9 @@ import { ref } from 'vue';
 
 
 const editableSauceData = ref({
-
+  name: '',
+  picture: '',
+  description: '',
 })
 </script>
 

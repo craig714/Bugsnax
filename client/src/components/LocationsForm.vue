@@ -3,7 +3,9 @@ import { ref } from 'vue';
 
 
 const editableLocationsData = ref({
-
+  name: '',
+  picture: '',
+  description: '',
 })
 </script>
 
