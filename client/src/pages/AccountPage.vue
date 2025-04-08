@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { AppState } from '../AppState.js';
+import AdminPage from './AdminPage.vue';
 
 const account = computed(() => AppState.account)
 
@@ -12,6 +13,10 @@ const account = computed(() => AppState.account)
       <h1>Welcome {{ account.name }}</h1>
       <img class="rounded" :src="account.picture" alt="" />
       <p>{{ account.email }}</p>
+      <div>
+        <AdminPage />
+      </div>
+
     </div>
     <div v-else>
       <h1>Loading... <i class="mdi mdi-loading mdi-spin"></i></h1>
