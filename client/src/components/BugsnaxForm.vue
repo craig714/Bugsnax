@@ -41,7 +41,7 @@ async function postBug() {
             </div>
             <div>
               <label for="bugDescription">Description</label>
-              <input v-model="editableBugData.description" id="bugDescription" type="text">
+              <textarea v-model="editableBugData.description" id="bugDescription" type="text"></textarea>
             </div>
             <div>
               <label for="bugStrategy">Strategy </label>

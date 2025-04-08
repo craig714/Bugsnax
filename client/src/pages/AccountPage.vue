@@ -8,7 +8,7 @@ const account = computed(() => AppState.account)
 </script>
 
 <template>
-  <div class="about text-center">
+  <div class="about text-center arco-font">
     <div v-if="account">
       <h1>Welcome {{ account.name }}</h1>
       <img class="rounded" :src="account.picture" alt="" />
