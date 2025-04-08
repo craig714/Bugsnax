@@ -32,11 +32,6 @@ watch(theme, () => {
       <div class="collapse navbar-collapse" id="navbar-links">
         <div class="d-flex justify-content-around flex-grow-1">
           <div class="nav-item">
-            <RouterLink :to="{ name: 'Map' }" class="nav-link text-light">
-              Map
-            </RouterLink>
-          </div>
-          <div class="nav-item">
             <RouterLink :to="{ name: 'Bugsnax' }" class="nav-link text-light">
               Bugsnax
             </RouterLink>
