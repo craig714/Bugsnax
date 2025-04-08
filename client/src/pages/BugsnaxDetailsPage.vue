@@ -1,27 +1,39 @@
 <script setup>
 import { AppState } from '@/AppState.js';
-import { Bugsnax } from '@/models/Bugsnax.js';
+import { bugsnaxLocationService } from '@/services/BugsnaxLocationsService.js';
 import { bugsnaxService } from '@/services/BugsnaxService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
+
+const bugsnaxLocations = computed(() => AppState.bugsnaxLocations)
 const bugsnax = computed(() => AppState.activeBugsnax)
 const route = useRoute()
 
 
-defineProps({
-  bugsnaxArrayProp: { type: Bugsnax, required: true }
-})
 
 
 
 
 onMounted(() => {
+  getLocationsByBugsnaxId()
   getBugsnaxById()
+  AppState.activeBugsnax = null
 })
 
+
+async function getLocationsByBugsnaxId() {
+  try {
+    const bugsnaxId = route.params.bugsnaxId
+    await bugsnaxLocationService.getLocationsByBugsnaxId(bugsnaxId)
+  }
+  catch (error) {
+    Pop.error(error, 'Could not get bugsnax by location');
+    logger.error('Could not get bugsnax by location', error)
+  }
+}
 
 async function getBugsnaxById() {
   try {
@@ -46,6 +58,15 @@ async function getBugsnaxById() {
         </div>
         <div>
           <img class="cover-img mt-4" :src="bugsnax.picture" :alt="bugsnax.name">
+        </div>
+        <div class="mt-3 fs-4">
+          <p class="fw-bold">Location/Locations:</p>
+          <div v-if="bugsnaxLocations && bugsnaxLocations.length > 0">
+            <div v-for="location in bugsnaxLocations" :key="location.locationId">
+              {{ location.location && location.location.length > 0 ? location.location[0].name : 'Unnamed Location' }}
+            </div>
+          </div>
+          <p v-else>No known locations</p>
         </div>
         <div class="mt-5 fs-4">
           <p class="fw-bold">Description:</p> <span>{{ bugsnax.description }}</span>
