@@ -58,47 +58,47 @@ const routes = [
     component: loadPage('GrumpusesDetailsPage')
   },
   {
-    path: '/sizzlinSands',
+    path: '/sizzlinsands',
     name: 'SizzlinSands',
     component: loadPage('MapPage')
   },
   {
-    path: '/sugarpineWoods',
+    path: '/sugarpinewoods',
     name: 'SugarpineWoods',
     component: loadPage('MapPage')
   },
   {
-    path: '/frostedPeaks',
+    path: '/frostedpeaks',
     name: 'FrostedPeaks',
     component: loadPage('MapPage')
   },
   {
-    path: '/scorchedGorge',
+    path: '/scorchedgorge',
     name: 'ScorchedGorge',
     component: loadPage('MapPage')
   },
   {
-    path: '/boilingBay',
+    path: '/boilingbay',
     name: 'BoilingBay',
     component: loadPage('MapPage')
   },
   {
-    path: '/snackburg',
-    name: 'Snackburg',
+    path: '/snaxburg',
+    name: 'Snaxburg',
     component: loadPage('MapPage')
   },
   {
-    path: '/gardenGrove',
+    path: '/gardengrove',
     name: 'GardenGrove',
     component: loadPage('MapPage')
   },
   {
-    path: '/simmeringSprings',
+    path: '/simmeringsprings',
     name: 'SimmeringSprings',
     component: loadPage('MapPage')
   },
   {
-    path: '/flavorFalls',
+    path: '/flavorfalls',
     name: 'FlavorFalls',
     component: loadPage('MapPage')
   },
