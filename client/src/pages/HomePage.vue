@@ -5,8 +5,8 @@
 </script>
 
 <template>
-  <div class="arco-font fs-2">Welcome to the Bugsnax map! Select a region for more information!</div>
-  <svg width="2191" height="1354" viewBox="0 0 2191 1354" fill="none" xmlns="http://www.w3.org/2000/svg"
+  <div class="bobble-font fs-2">Welcome to the Bugsnax map! Select a region for more information!</div>
+  <svg width="auto" height="auto" viewBox="0 0 2191 1354" fill="cover" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect width="2191" height="1354" fill="#c6bcbe" />
     <a title="FrostedPeak" href="https://bugsnax.fandom.com/wiki/Frosted_Peak">

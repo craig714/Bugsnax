@@ -5,9 +5,28 @@
   src: url('../fonts/ARCO_for_OSX.otf');
 }
 
+@font-face {
+  font-family: bubble;
+  src: url('../fonts/Bobbleboddy.woff');
+}
+
+@font-face {
+  font-family: balsamiq;
+  src: url('../fonts/BalsamiqSans-Regular.woff');
+}
+
 .arco-font {
   font-family: ARCO;
 }
+
+.bobble-font {
+  font-family: bubble;
+}
+
+.balsamiq-font {
+  font-family: balsomiq;
+}
+
 
 #app {
   display: flex;
