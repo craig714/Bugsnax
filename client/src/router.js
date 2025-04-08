@@ -23,11 +23,6 @@ const routes = [
     beforeEnter: authGuard
   },
   {
-    path: '/map',
-    name: 'Map',
-    component: loadPage('MapPage')
-  },
-  {
     path: '/bugsnax',
     name: 'Bugsnax',
     component: loadPage('BugsnaxPage')
@@ -61,7 +56,52 @@ const routes = [
     path: '/grumpus/:grumpusId',
     name: 'GrumpusDetails',
     component: loadPage('GrumpusesDetailsPage')
-  }
+  },
+  {
+    path: '/sizzlinSands',
+    name: 'SizzlinSands',
+    component: loadPage('MapPage')
+  },
+  {
+    path: '/sugarpineWoods',
+    name: 'SugarpineWoods',
+    component: loadPage('MapPage')
+  },
+  {
+    path: '/frostedPeaks',
+    name: 'FrostedPeaks',
+    component: loadPage('MapPage')
+  },
+  {
+    path: '/scorchedGorge',
+    name: 'ScorchedGorge',
+    component: loadPage('MapPage')
+  },
+  {
+    path: '/boilingBay',
+    name: 'BoilingBay',
+    component: loadPage('MapPage')
+  },
+  {
+    path: '/snackburg',
+    name: 'Snackburg',
+    component: loadPage('MapPage')
+  },
+  {
+    path: '/gardenGrove',
+    name: 'GardenGrove',
+    component: loadPage('MapPage')
+  },
+  {
+    path: '/simmeringSprings',
+    name: 'SimmeringSprings',
+    component: loadPage('MapPage')
+  },
+  {
+    path: '/flavorFalls',
+    name: 'FlavorFalls',
+    component: loadPage('MapPage')
+  },
 ]
 
 export const router = createRouter({
