@@ -27,13 +27,7 @@ async function postBug() {
 <template>
   <section class="container">
     <div class="row justify-content-center">
-      <div class="col-8">
-        <h1>Admin Page</h1>
-        <p class="text-danger fs-2 fw-bold">This is a page for Admins Only!!!</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
+      <div class="col-md-6  border">
         <section>
           <h2>Bugsnax form</h2>
           <form @submit.prevent="postBug()">
