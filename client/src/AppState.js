@@ -11,6 +11,8 @@ export const AppState = reactive({
   bugsnax: [],
   /** @type {import('./models/Grumpus.js').Grumpus[]} user info from the database*/
 
-  grumpuses: []
+  grumpuses: [],
+
+  activeBugsnax: null
 })
 
