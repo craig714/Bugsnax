@@ -19,8 +19,8 @@ defineProps({
     <div class="card mt-3 mb-3">
       <img class="cover-img" :src="sauceProp.picture" alt="">
       <div class="card-body">
-        <h5 class="card-title">{{ sauceProp.name }}</h5>
-        <p class="card-text"> {{ sauceProp.description }}</p>
+        <h5 class="card-title arco-font">{{ sauceProp.name }}</h5>
+        <p class="card-text bobble-font"> {{ sauceProp.description }}</p>
       </div>
     </div>
   </RouterLink>
