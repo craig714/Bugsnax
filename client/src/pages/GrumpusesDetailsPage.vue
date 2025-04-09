@@ -57,7 +57,7 @@ async function getGrumpusesById() {
         <div>
           <img class="cover-img mt-4" :src="grumpus.picture" alt="">
         </div>
-        <div class="mt-5 fs-4">
+        <div class=" mt-5 fs-4">
           <p class="fw-bold">Location/Locations:</p>
           <div v-if="grumpusLocations && grumpusLocations.length > 0">
             <div v-for="location in grumpusLocations" :key="location.locationId">
@@ -100,7 +100,7 @@ async function getGrumpusesById() {
 .cover-img {
   width: 100%;
   max-height: 600px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 10px;
 }
 </style>
