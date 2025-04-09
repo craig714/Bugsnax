@@ -1,23 +1,19 @@
-feature/locations
+
 import { logger } from "@/utils/Logger.js"
 import { api } from "./AxiosService.js"
 import { AppState } from "@/AppState.js"
 import { Location } from "@/models/Location.js"
-=======
 
-class LocationsService {
-  async createLocation(locationData) {
-    const response = await api.post('api/location', locationData)
-    const location = new Location(response.data)
-    AppState.location.push(location)
-  }
 
-  //   async function getAllLocations() {
-  //   const response = await api.get('api/location')
-  //   const location = response.data.map(pojo => new Location(pojo))
-  //   AppState.location = location
-  // }
-main
+
+
+
+//   async function getAllLocations() {
+//   const response = await api.get('api/location')
+//   const location = response.data.map(pojo => new Location(pojo))
+//   AppState.location = location
+// }
+
 
 class LocationsService {
   async getLocationById(locationId) {
@@ -42,6 +38,12 @@ class LocationsService {
     // logger.log('findLocationByName returned ', location)
     AppState.activeLocation = activeLocation
     logger.log('AppState.activeLocation is now ', AppState.activeLocation)
+  }
+
+  async createLocation(locationData) {
+    const response = await api.post('api/locations', locationData)
+    const location = new Location(response.data)
+    AppState.locations.push(location)
   }
 
 }
