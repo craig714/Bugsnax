@@ -19,8 +19,8 @@ async function createSauce() {
       picture: '',
       description: ''
     }
-  }
-  catch (error) {
+    Pop.success('Sauce created!');
+  } catch (error) {
     Pop.error(error);
   }
 }
@@ -30,24 +30,25 @@ async function createSauce() {
 <template>
   <section class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-6 border p-4 rounded">
         <section>
-          <h2>Sauce Form</h2>
-          <form @submit.prevent="createSauce()">
-            <div>
-              <label for="name">Name</label>
-              <input v-model="editableSauceData.name" id="name" type="text">
+          <h2 class="mb-3">Sauce Form</h2>
+          <form @submit.prevent="createSauce()" class="fs-3">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input v-model="editableSauceData.name" id="name" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="picture" class="form-label">Picture</label>
+              <input v-model="editableSauceData.picture" id="picture" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="descriptionBox" class="form-label">Description</label>
+              <textarea v-model="editableSauceData.description" name="description" id="descriptionBox"
+                class="form-control"></textarea>
             </div>
             <div>
-              <label for="picture">Picture</label>
-              <input v-model="editableSauceData.picture" id="picture" type="text">
-            </div>
-            <div>
-              <label for="descriptionBox">Description</label>
-              <textarea v-model="editableSauceData.description" name="description" id="descriptionBox"></textarea>
-            </div>
-            <div>
-              <button class="btn btn-outline-secondary" type="submit">Submit Sauce!</button>
+              <button class="btn btn-outline-secondary fs-2" type="submit">Submit Sauce!</button>
             </div>
           </form>
         </section>
@@ -57,4 +58,6 @@ async function createSauce() {
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+/* You can add more custom styling here if needed */
+</style>
