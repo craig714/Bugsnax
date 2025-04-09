@@ -36,7 +36,7 @@ async function getAllBugsnax() {
 
 
 <template>
-  <h1>This is the Bugsnax Page!</h1>
+
   <div class="container">
     <div class="row">
       <div v-for="bug in bugsnax" :key="bug.id" class="col-12 col-md-3">

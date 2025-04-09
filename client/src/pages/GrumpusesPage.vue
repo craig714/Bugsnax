@@ -36,7 +36,7 @@ async function getAllGrumpuses() {
 
 
 <template>
-  <h1>This is the grumpus page!</h1>
+
   <div class="container">
     <div class="row">
       <div v-for="grumpus in grumpuses" :key="grumpus.id" class="col-12 col-md-3">
