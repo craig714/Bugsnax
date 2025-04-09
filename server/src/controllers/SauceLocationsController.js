@@ -8,6 +8,7 @@ export class SauceLocationsController extends BaseController {
     super('api/sauceLocations')
     this.router
       .get('', this.getAllSauceLocations)
+      .get('/:sauceId', this.getLocationBySauceId)
       .get('/locations/:locationId', this.getSauceLocationsByLocationId)
       .get('/:sauceLocationId', this.getSauceLocationById)
       // .use(Auth0Provider.getAuthorizedUserInfo)
@@ -28,6 +29,26 @@ export class SauceLocationsController extends BaseController {
 
     }
   }
+
+  /**
+     * @param {import("express").Request} request
+     * @param {import("express").Response} response
+     * @param {import("express").NextFunction} next
+     */
+
+  async getLocationBySauceId(request, response, next) {
+    try {
+      const sauceId = request.params.sauceId
+      const sauceLocation = await sauceLocationsService.getLocationBySauceId(sauceId)
+      response.send(sauceLocation)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+
+
+
   /**
    * @param {import("express").Request} request
    * @param {import("express").Response} response

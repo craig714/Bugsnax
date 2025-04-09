@@ -58,6 +58,11 @@ const routes = [
     component: loadPage('GrumpusesDetailsPage')
   },
   {
+    path: '/sauce/:sauceId',
+    name: 'SauceDetails',
+    component: loadPage('SaucesDetailsPage')
+  },
+  {
     path: '/sizzlinsands',
     name: 'Sizzlin Sands',
     component: loadPage('LocationDetailsPage')

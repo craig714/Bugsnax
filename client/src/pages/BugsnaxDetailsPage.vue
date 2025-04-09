@@ -63,7 +63,7 @@ async function getBugsnaxById() {
           <p class="fw-bold">Location/Locations:</p>
           <div v-if="bugsnaxLocations && bugsnaxLocations.length > 0">
             <div v-for="location in bugsnaxLocations" :key="location.locationId">
-              {{ location.location && location.location.length > 0 ? location.location[0].name : 'Unnamed Location' }}
+              {{ location.location[0].name }}
             </div>
           </div>
           <p v-else>No known locations</p>

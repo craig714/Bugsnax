@@ -22,7 +22,11 @@ class BugsnaxService {
     AppState.activeBugsnax = bugsnax
   }
 
-
+  async createBug(bugData) {
+    const response = await api.post('api/bugsnax', bugData)
+    const bugsnax = new Bugsnax(response.data)
+    AppState.bugsnax.push(bugsnax)
+  }
 
 
 }
