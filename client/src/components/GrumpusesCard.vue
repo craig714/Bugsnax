@@ -34,6 +34,6 @@ defineProps({
   max-height: 300px;
   min-height: 300px;
   object-fit: cover;
-  border-radius: 10px;
+
 }
 </style>
