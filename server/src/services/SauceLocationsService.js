@@ -15,6 +15,12 @@ class SauceLocationsService {
     const sauceLocation = (await dbContext.SauceLocations.findById(sauceLocationId)).populate('sauce location')
     return sauceLocation
   }
+
+  async getLocationBySauceId(sauceId) {
+    const location = await dbContext.SauceLocations.find({ sauceId: sauceId }).populate('sauce location')
+    return location
+  }
+
   async createSauceLocations(sauceLocationData) {
     const sauceLocation = await dbContext.SauceLocations.create(sauceLocationData)
     await sauceLocation.populate('sauce')
