@@ -8,9 +8,9 @@ const editableBugData = ref({
   picture: '',
   description: '',
   strategy: '',
-  likes: '',
-  dislikes: '',
-  fears: ''
+  likes: [{ name: '' }],
+  dislikes: [''],
+  fears: ['']
 })
 
 async function createBug() {
@@ -22,13 +22,25 @@ async function createBug() {
       picture: '',
       description: '',
       strategy: '',
-      likes: '',
-      dislikes: '',
-      fears: ''
-    }
+      likes: [{ name: '' }],
+      dislikes: [''],
+      fears: ['']
+    };
+    Pop.success('Bugsnak created!');
   }
   catch (error) {
     Pop.error(error);
+  }
+}
+function addLike() {
+  editableBugData.value.likes.push({ name: '' });
+}
+
+function removeLike(index) {
+  if (editableBugData.value.likes.length > 1) {
+    editableBugData.value.likes.splice(index, 1);
+  } else {
+    editableBugData.value.likes = [{ name: '' }];
   }
 }
 </script>
@@ -58,8 +70,14 @@ async function createBug() {
               <input v-model="editableBugData.strategy" id="bugStrategy" type="text">
             </div>
             <div>
-              <label for="bugLikes">Likes</label>
-              <input v-model="editableBugData.likes" id="bugLikes" type="text">
+              <label>Likes</label>
+              <div v-for="(like, index) in editableBugData.likes" :key="index" class="d-flex align-items-center mb-2">
+                <input v-model="editableBugData.likes[index]" :id="'bugLikes-' + index" type="text"
+                  class="form-control me-2">
+                <button v-if="editableBugData.likes.length > 1" @click="removeLike(index)" type="button"
+                  class="btn btn-outline-danger btn-sm">Remove</button>
+              </div>
+              <button @click="addLike" type="button" class="btn btn-outline-success btn-sm">Add Like</button>
             </div>
             <div>
               <label for="bugDislikes">Dislikes</label>
