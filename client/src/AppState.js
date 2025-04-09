@@ -24,5 +24,10 @@ export const AppState = reactive({
 
 
   activeGrumpus: null,
+
+  activeSauce: null,
+  /** @type {import('./models/SauceLocation.js').SauceLocation[]} user info from the database*/
+  sauceLocation: []
+
 })
 
