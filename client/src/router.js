@@ -64,48 +64,48 @@ const routes = [
   },
   {
     path: '/sizzlinsands',
-    name: 'SizzlinSands',
-    component: loadPage('MapPage')
+    name: 'Sizzlin Sands',
+    component: loadPage('LocationDetailsPage')
   },
   {
     path: '/sugarpinewoods',
-    name: 'SugarpineWoods',
-    component: loadPage('MapPage')
+    name: 'Sugarpine Woods',
+    component: loadPage('LocationDetailsPage')
   },
   {
-    path: '/frostedpeaks',
-    name: 'FrostedPeaks',
-    component: loadPage('MapPage')
+    path: '/frostedpeak',
+    name: 'Frosted Peak',
+    component: loadPage('LocationDetailsPage')
   },
   {
     path: '/scorchedgorge',
-    name: 'ScorchedGorge',
-    component: loadPage('MapPage')
+    name: 'Scorched Gorge',
+    component: loadPage('LocationDetailsPage')
   },
   {
     path: '/boilingbay',
-    name: 'BoilingBay',
-    component: loadPage('MapPage')
+    name: 'Boiling Bay',
+    component: loadPage('LocationDetailsPage')
   },
   {
     path: '/snaxburg',
     name: 'Snaxburg',
-    component: loadPage('MapPage')
+    component: loadPage('LocationDetailsPage')
   },
   {
     path: '/gardengrove',
-    name: 'GardenGrove',
-    component: loadPage('MapPage')
+    name: 'Garden Grove',
+    component: loadPage('LocationDetailsPage')
   },
   {
     path: '/simmeringsprings',
-    name: 'SimmeringSprings',
-    component: loadPage('MapPage')
+    name: 'Simmering Springs',
+    component: loadPage('LocationDetailsPage')
   },
   {
     path: '/flavorfalls',
-    name: 'FlavorFalls',
-    component: loadPage('MapPage')
+    name: 'Flavor Falls',
+    component: loadPage('LocationDetailsPage')
   },
 ]
 
