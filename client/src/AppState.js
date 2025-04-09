@@ -6,15 +6,18 @@ export const AppState = reactive({
   identity: null,
   /** @type {import('./models/Account.js').Account} user info from the database*/
   account: null,
-
-  /** @type {import('./models/Bugsnax.js').Bugsnax[]} user info from the database*/
+  /**@type {import('./models/Location.js').Location[]} */
+  location: [],
+  /** @type {import('./models/Bugsnax.js').Bugsnax[]}*/
   bugsnax: [],
-  /** @type {import('./models/Grumpus.js').Grumpus[]} user info from the database*/
-
+  /** @type {import('./models/Tool.js').Tool[]} */
+  tool: [],
+  /** @type {import('./models/Sauce.js').Sauce[]} */
+  sauce: [],
+  /** @type {import('./models/Grumpus.js').Grumpus[]} */
   grumpuses: [],
-
   activeBugsnax: null,
-  /** @type {import('./models/BugsnaxLocation.js').BugsnaxLocation[]} user info from the database*/
+  /** @type {import('./models/BugsnaxLocation.js').BugsnaxLocation[]}*/
   bugsnaxLocations: [],
 })
 
