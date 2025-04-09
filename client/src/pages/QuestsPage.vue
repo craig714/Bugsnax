@@ -1,10 +1,35 @@
 <script setup>
+import { AppState } from '@/AppState.js';
+import { questsService } from '@/services/QuestsService.js';
+import { logger } from '@/utils/Logger.js';
+import { Pop } from '@/utils/Pop.js';
+import { computed, onMounted } from 'vue';
+
+
+
+const quests = computed(() => AppState.quests)
+
+
+onMounted(() => {
+  getAllQuests()
+})
+
+
+async function getAllQuests() {
+  try {
+    await questsService.getAllQuests()
+  }
+  catch (error) {
+    Pop.error(error, 'Could not get all quests');
+    logger.log('Could not get all quests'.toUpperCase())
+  }
+}
 
 </script>
 
 
 <template>
-  <h1>This is the quests page!</h1>
+  <div></div>
 </template>
 
 
