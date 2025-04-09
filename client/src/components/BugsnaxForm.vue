@@ -1,5 +1,5 @@
 <script setup>
-import { adminService } from '@/services/AdminService.js';
+import { bugsnaxService } from '../services/BugsnaxService';
 import { Pop } from '@/utils/Pop.js';
 import { ref } from 'vue';
 
@@ -10,12 +10,22 @@ const editableBugData = ref({
   strategy: '',
   likes: '',
   dislikes: '',
-  fears: '',
+  fears: ''
 })
 
-async function postBug() {
+async function createBug() {
   try {
-    await adminService.postBug(editableBugData.value)
+    const bugData = editableBugData.value
+    await bugsnaxService.createBug(bugData)
+    editableBugData.value = {
+      name: '',
+      picture: '',
+      description: '',
+      strategy: '',
+      likes: '',
+      dislikes: '',
+      fears: ''
+    }
   }
   catch (error) {
     Pop.error(error);
@@ -30,14 +40,14 @@ async function postBug() {
       <div class="col-md-6  border">
         <section>
           <h2>Bugsnax form</h2>
-          <form @submit.prevent="postBug()">
+          <form @submit.prevent="createBug()">
             <div>
               <label for="bugName">Name</label>
               <input v-model="editableBugData.name" id="bugName" type="text">
             </div>
             <div>
               <label for="bugPicture">Picture</label>
-              <input v-model="editableBugData.picture" id="bugPicture" type="text">
+              <input v-model="editableBugData.picture" id="bugPicture" type="url">
             </div>
             <div>
               <label for="bugDescription">Description</label>
