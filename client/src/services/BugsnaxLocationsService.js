@@ -4,6 +4,13 @@ import { BugsnaxLocation } from "@/models/BugsnaxLocation.js"
 import { AppState } from "@/AppState.js"
 
 class BugsnaxLocationService {
+  async getBugsnaxLocationsByLocationId(locationId) {
+    const response = await api.get(`api/bugsnaxLocations/locations/${locationId}`)
+    // logger.log('getBugsnaxLocationsByLocationId returned ', response.data)
+    const bugsnaxLocations = response.data.map(pojo => new BugsnaxLocation(pojo))
+    AppState.bugsnax = bugsnaxLocations
+    logger.log('AppState.bugsnax is ', AppState.bugsnax)
+  }
 
 
   async getLocationsByBugsnaxId(bugsnaxId) {

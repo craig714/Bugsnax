@@ -1,5 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import { bugsnaxLocationService } from '@/services/BugsnaxLocationsService.js';
 import { locationsService } from '@/services/LocationsService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
@@ -8,7 +9,8 @@ import { useRoute } from 'vue-router';
 
 
 
-const activelocation = computed(() => AppState.activeLocation)
+const location = computed(() => AppState.activeLocation)
+const bugsnax = computed(() => AppState.bugsnax)
 
 const route = useRoute()
 
@@ -18,9 +20,9 @@ onMounted(() => {
 
 async function getAllLocations() {
   try {
-    debugger
     await locationsService.getAllLocations()
     setActiveLocation()
+    getBugsnaxForThisLocation()
   }
   catch (error) {
     Pop.error(error, 'Could not get all locations');
@@ -28,20 +30,19 @@ async function getAllLocations() {
   }
 }
 
-// async function getLocationByIdUsingName() {
-//   try {
-//     debugger
-//     await locationsService.getLocationByIdUsingName(locationName)
-//   }
-//   catch (error) {
-//     Pop.error(error, 'Could not get location');
-//     logger.log('Could not get location'.toUpperCase(), error)
-//   }
-// }
+async function getBugsnaxForThisLocation() {
+  try {
+    const locationId = location.value.id
+    await bugsnaxLocationService.getBugsnaxLocationsByLocationId(locationId)
+  }
+  catch (error) {
+    Pop.error(error, 'Could not get bugsnaxLocations');
+    logger.log('Could not get bugsnaxLocations'.toUpperCase(), error)
+  }
+}
 
 function setActiveLocation() {
   try {
-    debugger
     const locationName = route.name
     locationsService.setActiveLocation(locationName)
   }
@@ -55,8 +56,33 @@ function setActiveLocation() {
 
 
 <template>
-  <div></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="fw-bold fs-1 d-flex justify-content-center">
+          <p>{{ location?.name }}</p>
+        </div>
+        <div>
+          <img class="cover-img mt-4" :src="location?.picture" :alt="`Picture of ${location?.name}`">
+        </div>
+        <div class="mt-3 fs-4">
+          <p class="fw-bold">Bugsnax:</p>
+          <div v-for="bugsnak in bugsnax" :key="bugsnak.id">
+            <p>{{ bugsnak.name }}</p>
+            <p>{{ bugsnak.picture }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.cover-img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+</style>
