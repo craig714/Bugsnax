@@ -21,8 +21,8 @@ async function createTools() {
       description: '',
       location: ''
     }
-  }
-  catch (error) {
+    Pop.success('Tool created!');
+  } catch (error) {
     Pop.error(error);
   }
 }
@@ -32,28 +32,29 @@ async function createTools() {
 <template>
   <section class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-6 border p-4 rounded">
         <section>
-          <h2>Tools Form</h2>
-          <form @submit.prevent="createTools()">
-            <div>
-              <label for="">Name</label>
-              <input v-model="editableToolsData.name" type="text">
+          <h2 class="mb-3">Tools Form</h2>
+          <form @submit.prevent="createTools()" class="fs-3">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input v-model="editableToolsData.name" type="text" class="form-control" id="name">
+            </div>
+            <div class="mb-3">
+              <label for="picture" class="form-label">Picture</label>
+              <input v-model="editableToolsData.picture" type="url" class="form-control" id="picture">
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea v-model="editableToolsData.description" name="" id="description"
+                class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="location" class="form-label">Location</label>
+              <input id="location" v-model="editableToolsData.location" type="text" class="form-control">
             </div>
             <div>
-              <label for="">Picture</label>
-              <input v-model="editableToolsData.picture" type="url">
-            </div>
-            <div>
-              <label for="description">Description</label>
-              <textarea v-model="editableToolsData.description" name="" id="description"></textarea>
-            </div>
-            <div>
-              <label for="location">Location</label>
-              <input id="location" v-model="editableToolsData.location" type="text">
-            </div>
-            <div>
-              <button class="btn btn-outline-secondary" type="submit">Submit Tool!</button>
+              <button class="btn btn-outline-secondary fs-2" type="submit">Submit Tool!</button>
             </div>
           </form>
         </section>
@@ -63,4 +64,6 @@ async function createTools() {
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+/* You can add more custom styling here if needed */
+</style>
