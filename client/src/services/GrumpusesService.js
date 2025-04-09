@@ -12,6 +12,11 @@ class GrumpusesService {
     AppState.grumpuses = grumpus
   }
 
+  async createGrumpus(grumpData) {
+    const response = await api.post('api/grumpus', grumpData)
+    const grumpus = new Grumpus(response.data)
+    AppState.grumpuses.push(grumpus)
+  }
 }
 
 export const grumpusesService = new GrumpusesService()
