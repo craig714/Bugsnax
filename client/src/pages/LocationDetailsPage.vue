@@ -8,22 +8,46 @@ import { useRoute } from 'vue-router';
 
 
 
-const location = computed(() => AppState.activeLocation)
+const activelocation = computed(() => AppState.activeLocation)
 
 const route = useRoute()
 
 onMounted(() => {
-  getLocationByName()
+  getAllLocations()
 })
 
-async function getLocationByName() {
+async function getAllLocations() {
   try {
-    const locationName = route.name
-    await locationsService.getLocationByName(locationName)
+    debugger
+    await locationsService.getAllLocations()
+    setActiveLocation()
   }
   catch (error) {
-    Pop.error(error, 'Could not get location');
-    logger.log('Could not get location'.toUpperCase(), error)
+    Pop.error(error, 'Could not get all locations');
+    logger.log('Could not get all locations'.toUpperCase(), error)
+  }
+}
+
+// async function getLocationByIdUsingName() {
+//   try {
+//     debugger
+//     await locationsService.getLocationByIdUsingName(locationName)
+//   }
+//   catch (error) {
+//     Pop.error(error, 'Could not get location');
+//     logger.log('Could not get location'.toUpperCase(), error)
+//   }
+// }
+
+function setActiveLocation() {
+  try {
+    debugger
+    const locationName = route.name
+    locationsService.setActiveLocation(locationName)
+  }
+  catch (error) {
+    Pop.error(error, 'Could not Set activeLocation');
+    logger.log('Could not Set activeLocation'.toUpperCase(), error)
   }
 }
 
