@@ -8,6 +8,7 @@ export class BugsnaxLocationsController extends BaseController {
     super('api/bugsnaxLocations')
     this.router
       .get('', this.getAllBugsnaxLocations)
+      .get('/:bugsnaxId', this.getBugsnaxLocationByBugsnaxId)
       .get('/locations/:locationId', this.getBugsnaxLocationsByLocationId)
       .get('/:bugsnaxLocationId', this.getBugsnaxLocationById)
       // .use(Auth0Provider.getAuthorizedUserInfo)
@@ -28,7 +29,20 @@ export class BugsnaxLocationsController extends BaseController {
     } catch (error) {
       next(error)
     }
+
   }
+
+  async getBugsnaxLocationByBugsnaxId(request, response, next) {
+    try {
+      const bugsnaxId = request.params.bugsnaxId
+      const bugsnaxLocation = await bugsnaxLocationsService.getBugsnaxLocationByBugsnaxId(bugsnaxId)
+      response.send(bugsnaxLocation)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+
   /**
    * @param {import("express").Request} request
    * @param {import("express").Response} response

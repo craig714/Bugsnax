@@ -8,6 +8,14 @@ class BugsnaxLocationsService {
     return bugsnaxLocations
   }
 
+
+  async getBugsnaxLocationByBugsnaxId(bugsnaxId) {
+    const bugsnaxLocation = await dbContext.BugsnaxLocations.find({ bugsnaxId: bugsnaxId }).populate('bugsnax location')
+
+    return bugsnaxLocation
+  }
+
+
   async getBugsnaxLocationsByLocationId(locationId) {
     const bugsnaxLocations = dbContext.BugsnaxLocations.find({ locationId: locationId })
     return bugsnaxLocations
