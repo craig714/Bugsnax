@@ -7,6 +7,7 @@ export class GrumpusLocationsController extends BaseController {
     super('api/grumpusLocations')
     this.router
       .get('', this.getAllGrumpusLocations)
+      .get('/:grumpusId', this.getGrumpusLocationsByGrumpusId)
       .get('/locations/:grumpusLocations', this.getGrumpusLocationsByLocationId)
       .get('/:grumpusLocationId', this.getGrumpusLocationById)
       .post('', this.createGrumpusLocation)
@@ -30,6 +31,26 @@ export class GrumpusLocationsController extends BaseController {
       next(error)
     }
   }
+
+
+  /**
+     * @param {import("express").Request} request
+     * @param {import("express").Response} response
+     * @param {import("express").NextFunction} next
+     */
+
+  async getGrumpusLocationsByGrumpusId(request, response, next) {
+    try {
+      const grumpusId = request.params.grumpusId
+      const grumpusLocation = await grumpusLocationsService.getGrumpusLocationsByGrumpusId(grumpusId)
+      response.send(grumpusLocation)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+
+
 
 
   /**

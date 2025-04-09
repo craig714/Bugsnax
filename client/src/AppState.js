@@ -16,5 +16,10 @@ export const AppState = reactive({
   activeBugsnax: null,
   /** @type {import('./models/BugsnaxLocation.js').BugsnaxLocation[]} user info from the database*/
   bugsnaxLocations: [],
+  /** @type {import('./models/GrumpusLocation.js').GrumpusLocation[]} user info from the database*/
+  grumpusLocations: [],
+
+
+  activeGrumpus: null,
 })
 

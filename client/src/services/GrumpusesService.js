@@ -12,6 +12,20 @@ class GrumpusesService {
     AppState.grumpuses = grumpus
   }
 
+
+
+  async getGrumpusesById(grumpusId) {
+    const response = await api.get(`api/grumpus/${grumpusId}`)
+    logger.log('Got Grumpus by Id', response.data)
+    const grumpus = new Grumpus(response.data)
+    AppState.activeGrumpus = grumpus
+  }
+
+
+
+
+
+
 }
 
 export const grumpusesService = new GrumpusesService()
