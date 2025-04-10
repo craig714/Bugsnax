@@ -73,7 +73,7 @@ async function createBug() {
 <template>
   <section class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6 border p-4 rounded">
+      <div class="col-12 border p-4 rounded">
         <section>
           <h2 class="mb-3">Bugsnax form</h2>
           <form @submit.prevent="createBug()" class="fs-3">

@@ -10,20 +10,25 @@ const identity = computed(() => AppState.identity)
 </script>
 
 <template>
-  <div class="about text-center arco-font">
-    <div v-if="account">
-      <h1>Welcome {{ account.name }}</h1>
-      <img class="rounded" :src="account.picture" alt="" />
-      <p>{{ account.email }}</p>
-      <div v-if="identity.permissions.includes('write')">
-        <AdminPage />
+  <section class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="about text-center arco-font">
+          <div v-if="account">
+            <h1>Welcome {{ account.name }}</h1>
+            <img class="rounded" :src="account.picture" alt="" />
+            <p>{{ account.email }}</p>
+          </div>
+        </div>
       </div>
-      <div v-else>Admin is great</div>
+      <div class="col-md-6">
+        <div v-if="identity.permissions.includes('write')">
+          <AdminPage />
+        </div>
+      </div>
     </div>
-    <div v-else>
-      <h1>Loading... <i class="mdi mdi-loading mdi-spin"></i></h1>
-    </div>
-  </div>
+  </section>
+
 </template>
 
 <style scoped lang="scss">
