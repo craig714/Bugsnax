@@ -12,6 +12,7 @@ class GrumpusesLocationService {
     logger.log('AppState.activeGrumpusLocation is ', AppState.activeGrumpusLocation)
   }
   async getLocationsByGrumpusId(grumpusId) {
+    debugger
     const response = await api.get(`api/grumpusLocations/${grumpusId}`)
     logger.log('Got grumpus locations!', response.data)
     const grumpusLocations = response.data.map(pojo => new GrumpusLocation(pojo))

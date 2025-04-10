@@ -37,17 +37,15 @@ import questPic from '@/assets/img/journal.webp'
 
 
 <template>
-  <div class="container">
-    <div class="row">
-      <div v-for="quest in quests" :key="quest.id" class="col-md-3">
-        <QuestCard :questProp="quest" />
-      </div>
-    </div>
-  </div>
 
   <body :style="{ backgroundImage: `url(${questPic})` }">
-
-    <h1>This is the quests page!</h1>
+    <div class="container">
+      <div class="row">
+        <div v-for="quest in quests" :key="quest.id" class="col-md-3">
+          <QuestCard :questProp="quest" />
+        </div>
+      </div>
+    </div>
   </body>
 
 

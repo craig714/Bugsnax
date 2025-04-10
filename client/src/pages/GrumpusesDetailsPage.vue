@@ -48,7 +48,7 @@ async function getGrumpusesById() {
 
 
 <template>
-  <div v-if="grumpus" class="container">
+  <div v-if="grumpus && grumpusLocations" class="container">
     <div class="row">
       <div class="col-12">
         <div class="fw-bold fs-1 d-flex justify-content-center">
@@ -61,7 +61,7 @@ async function getGrumpusesById() {
           <p class="fw-bold">Location/Locations:</p>
           <div v-if="grumpusLocations && grumpusLocations.length > 0">
             <div v-for="location in grumpusLocations" :key="location.locationId">
-              {{ location.location.name }}
+              {{ location.location?.name }}
             </div>
           </div>
           <p v-else>No known location</p>

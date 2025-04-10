@@ -8,14 +8,13 @@ export class GrumpusLocationsController extends BaseController {
     this.router
       .get('', this.getAllGrumpusLocations)
       .get('/quests/:questId', this.getGrumpusLocationsByQuestId)
-      .get('/locations/:grumpusLocations', this.getGrumpusLocationsByLocationId)
+      .get('/:grumpusId', this.getGrumpusLocationsByGrumpusId)
+      // .get('/locations/:grumpusLocations', this.getGrumpusLocationsByLocationId)
       .get('/:grumpusLocationId', this.getGrumpusLocationById)
       .post('', this.createGrumpusLocation)
       .delete('/:grumpusLocationId', this.deleteGrumpusLocation)
       .put('/:grumpusLocationId', this.editGrumpusLocation)
   }
-
-
 
   /**
      * @param {import("express").Request} request
@@ -49,7 +48,21 @@ export class GrumpusLocationsController extends BaseController {
     }
   }
 
+  /**
+     * @param {import("express").Request} request
+     * @param {import("express").Response} response
+     * @param {import("express").NextFunction} next
+     */
 
+  async getGrumpusLocationsByGrumpusId(request, response, next) {
+    try {
+      const grumpusId = request.params.grumpusId
+      const grumpusLocation = await grumpusLocationsService.getGrumpusLocationsByGrumpusId(grumpusId)
+      response.send(grumpusLocation)
+    } catch (error) {
+      next(error)
+    }
+  }
 
 
 
