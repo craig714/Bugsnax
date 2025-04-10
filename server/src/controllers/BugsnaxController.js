@@ -1,4 +1,4 @@
-import { Auth0Provider } from "@bcwdev/auth0provider";
+import auth0provider, { Auth0Provider } from "@bcwdev/auth0provider";
 import { bugsnaxService } from "../services/BugSnaxService.js";
 import BaseController from "../utils/BaseController.js";
 // import { bugsnaxLocationService } from "../services/BugsnaxLocationService.js";
@@ -10,7 +10,9 @@ export class BugsnaxController extends BaseController {
       .get('', this.getAllBugsnax)
       .get('/:bugsnaxId', this.getBugsnaxById)
       // .get('/:locationId', this.getBugsnaxByLocation)
-      // .use(Auth0Provider.getAuthorizedUserInfo)
+      .use(Auth0Provider.getAuthorizedUserInfo)
+      // .use(Auth0Provider.hasRoles('admin'))
+      .use(Auth0Provider.hasPermissions('write: everything'))
       .post('', this.createBugsnax)
       .put('/:bugsnaxId', this.updateBugsnax)
       .delete('/:bugsnaxId', this.deleteBugsnax)
