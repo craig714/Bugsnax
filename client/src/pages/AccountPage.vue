@@ -4,6 +4,7 @@ import { AppState } from '../AppState.js';
 import AdminPage from './AdminPage.vue';
 
 const account = computed(() => AppState.account)
+const identity = computed(() => AppState.identity)
 
 </script>
 
@@ -14,6 +15,7 @@ const account = computed(() => AppState.account)
       <img class="rounded" :src="account.picture" alt="" />
       <p>{{ account.email }}</p>
       <p>{{ account }}</p>
+      <p>{{ identity.permissions }}</p>
       <p></p>
       <div>
         <AdminPage />
