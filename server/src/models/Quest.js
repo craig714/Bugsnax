@@ -6,8 +6,7 @@ export const QuestSchema = new Schema({
   description: { type: String, required: true },
   grumpusId: { type: Schema.ObjectId, required: true },
   steps: [{ type: Object, required: true }],
-  questType: { type: String, required: true },
-  locationId: { type: Schema.ObjectId, required: true },
+  questType: { type: String, required: true }
 },
   {
     timestamps: true,

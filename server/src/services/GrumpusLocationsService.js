@@ -4,7 +4,7 @@ class GrumpusLocationsService {
 
 
   async getAllGrumpusLocations() {
-    const grumpusLocations = await dbContext.GrumpusLocations.find()
+    const grumpusLocations = await dbContext.GrumpusLocations.find().populate('grumpus location quest')
     return grumpusLocations
   }
 
@@ -13,23 +13,24 @@ class GrumpusLocationsService {
     const grumpusLocation = await dbContext.GrumpusLocations.create(grumpusLocationsData)
     await grumpusLocation.populate('grumpus')
     await grumpusLocation.populate('location')
+    await grumpusLocation.populate('quest')
     return grumpusLocation
 
   }
 
-  async getGrumpusLocationsByGrumpusId(grumpusId) {
-    const grumpusLocation = await dbContext.GrumpusLocations.find({ grumpusId: grumpusId }).populate('grumpus location')
+  async getGrumpusLocationsByQuestId(questId) {
+    const grumpusLocation = await dbContext.GrumpusLocations.find({ questId: questId }).populate('grumpus location quest')
     return grumpusLocation
   }
 
 
   async getGrumpusLocationsByLocationId(locationId) {
-    const grumpusLocation = await dbContext.GrumpusLocations.findById(locationId)
+    const grumpusLocation = await dbContext.GrumpusLocations.findById(locationId).populate('grumpus location quest')
     return grumpusLocation
   }
 
   async getGrumpusLocationById(grumpusLocationId) {
-    const grumpusLocation = await dbContext.GrumpusLocations.findById(grumpusLocationId)
+    const grumpusLocation = await dbContext.GrumpusLocations.findById(grumpusLocationId).populate('grumpus location quest')
     return grumpusLocation
   }
 
@@ -42,9 +43,10 @@ class GrumpusLocationsService {
 
 
   async editGrumpusLocation(grumpusLocationId, grumpusLocationData) {
-    const grumpusToEdit = await dbContext.GrumpusLocations.findById(grumpusLocationId)
+    const grumpusToEdit = await dbContext.GrumpusLocations.findById(grumpusLocationId).populate('grumpus location quest')
     grumpusToEdit.grumpusId = grumpusLocationData.grumpusId ?? grumpusToEdit.grumpusId
     grumpusToEdit.locationId = grumpusLocationData.locationId ?? grumpusToEdit.locationId
+    grumpusToEdit.questId = grumpusLocationData.questId ?? grumpusToEdit.questId
 
     await grumpusToEdit.save()
     return grumpusToEdit

@@ -48,6 +48,11 @@ const routes = [
     component: loadPage('QuestsPage')
   },
   {
+    path: '/quests/:questId',
+    name: 'QuestDetails',
+    component: loadPage('QuestDetailsPage')
+  },
+  {
     path: '/bugsnax/:bugsnaxId',
     name: 'BugsnaxDetails',
     component: loadPage('BugsnaxDetailsPage')
