@@ -9,35 +9,22 @@ import { useRoute } from 'vue-router';
 
 
 
-const grumpusLocations = computed(() => AppState.grumpusLocations)
-const quest = computed(() => AppState.activeQuest)
+// const grumpusLocations = computed(() => AppState.grumpusLocations)
+const activeGrumpusLocation = computed(() => AppState.activeGrumpusLocation)
+// const quest = computed(()=> AppState.activeGrumpusLocation.quest)
 
 const route = useRoute()
 
 onMounted(()=>{
-  getQuestById()
+  AppState.activeGrumpusLocation = null
+  getGrumpusLocationByQuestId()
 })
 
-
-
-
-async function getQuestById(){
-  try {
-    const questId = route.params.questId
-    await questsService.getQuestById(questId)
-    getGrumpusLocationsByGrumpusId()
-  }
-  catch (error){
-    Pop.error(error, 'Could not get quest by id');
-    logger.log('Could not get quest by id'.toUpperCase(), error)
-  }
-}
-
-async function getGrumpusLocationsByGrumpusId() {
+async function getGrumpusLocationByQuestId() {
   try {
     // debugger
-    const grumpusId = quest.value?.grumpusId
-    await grumpusesLocationService.getGrumpusLocationsByGrumpusId(grumpusId)
+    const questId = route.params.questId
+    await grumpusesLocationService.getGrumpusLocationByQuestId(questId)
 
   }
   catch (error) {
@@ -45,7 +32,6 @@ async function getGrumpusLocationsByGrumpusId() {
     logger.log('Could not get GrumpusLocation'.toUpperCase(), error)
   }
 }
-
 
 // function setActiveQuest() {
 //   try {
@@ -62,7 +48,16 @@ async function getGrumpusLocationsByGrumpusId() {
 
 
 <template>
-  QUEST DETAILS!!!
+  <div v-if="activeGrumpusLocation" class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="fw-bold fs-1 d-flex justify-content-center">
+          <img :src="activeGrumpusLocation.quest?.picture" :alt="`picture for the ${activeGrumpusLocation.quest?.name} quest`">
+          <p>{{ activeGrumpusLocation[0].quest?.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 

@@ -21,14 +21,13 @@ export const AppState = reactive({
   bugsnaxLocations: [],
   /** @type {import('./models/Quest.js').Quest[]} quest data from database*/
   quests: [],
-  /** @type {import('./models/Quest.js').Quest} info on the selected quest from the database*/
-  activeQuest: null,
-
   /** @type {import('./models/Location.js').Location} info on the selected location from the database*/
   activeLocation: null,
 
-  /** @type {import('./models/GrumpusLocation.js').GrumpusLocation[]} user info from the database*/
+  /** @type {import('./models/GrumpusLocation.js').GrumpusLocation[]} grumpusLocation data from the database*/
   grumpusLocations: [],
+  /** @type {import('./models/GrumpusLocation.js').GrumpusLocation} selected grumpusLocation from database from the database*/
+  activeGrumpusLocation: null,
 
 
   activeGrumpus: null,

@@ -16,12 +16,13 @@ class QuestsService {
     logger.log('getQuestById returned ', response.data)
     const quest = new Quest(response.data)
 
-    this.setActiveQuest(quest)
+    // this.setActiveQuest(quest)
   }
 
-  setActiveQuest(quest) {
-    AppState.activeQuest = quest
-  }
+  // setActiveQuest(quest) {
+  //   AppState.activeQuest = quest
+  //   logger.log('AppState.activeQuest is ', AppState.activeQuest)
+  // }
 
 
 }

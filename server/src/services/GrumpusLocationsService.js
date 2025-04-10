@@ -18,8 +18,8 @@ class GrumpusLocationsService {
 
   }
 
-  async getGrumpusLocationsByGrumpusId(grumpusId) {
-    const grumpusLocation = await dbContext.GrumpusLocations.find({ grumpusId: grumpusId }).populate('grumpus location quest')
+  async getGrumpusLocationsByQuestId(questId) {
+    const grumpusLocation = await dbContext.GrumpusLocations.find({ questId: questId }).populate('grumpus location quest')
     return grumpusLocation
   }
 
