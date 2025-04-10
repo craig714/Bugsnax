@@ -9,6 +9,7 @@ import { QuestSchema } from '../models/Quest.js';
 import { BugsnaxLocationSchema } from '../models/BugsnaxLocation.js';
 import { GrumpusLocationSchema } from '../models/GrumpusLocation.js';
 import { SauceLocationSchema } from '../models/SauceLocation.js';
+import { QuestLocationSchema } from '../models/QuestLocation.js';
 
 class DbContext {
   Account = mongoose.model('Account', AccountSchema)

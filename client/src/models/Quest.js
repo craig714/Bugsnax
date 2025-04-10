@@ -6,6 +6,5 @@ export class Quest {
     this.grumpusId = data.grumpusId
     this.steps = data.steps
     this.questType = data.questType
-    this.locationId = data.locationId
   }
 }

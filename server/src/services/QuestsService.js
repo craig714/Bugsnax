@@ -40,7 +40,6 @@ class QuestsService {
     questToEdit.grumpusId = questData.grumpusId ?? questToEdit.grumpusId
     questToEdit.steps = questData.steps ?? questToEdit.steps
     questToEdit.questType = questData.questType ?? questToEdit.questType
-    questToEdit.locationId = questData.locationId ?? questToEdit.locationId
     await questToEdit.save()
     return questToEdit
   }
