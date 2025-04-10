@@ -9,7 +9,7 @@ export class SauceController extends BaseController {
       .get('', this.getAllSauces)
       .get('/:sauceId', this.getSauceById)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      // .use(Auth0Provider.hasRoles('admin'))
+      .use(Auth0Provider.hasPermissions('write'))
       .post('', this.createSauce)
       .put('/:sauceId', this.updateSauce)
       .delete('/:sauceId', this.deleteSauce)

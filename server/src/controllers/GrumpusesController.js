@@ -9,7 +9,7 @@ export class GrumpusesController extends BaseController {
       .get('', this.getAllGrumpuses)
       .get('/:grumpusId', this.getGrumpusById)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      // .use(Auth0Provider.hasRoles('admin'))
+      .use(Auth0Provider.hasPermissions('write'))
       .post('', this.createGrumpus)
       .delete('/:grumpusId', this.deleteGrumpus)
       .put('/:grumpusId', this.editGrumpus)
