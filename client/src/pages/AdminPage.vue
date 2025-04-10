@@ -9,7 +9,7 @@ const activeComp = ref(BugsnaxForm);
 </script>
 
 <template>
-  <div class="bobble-font">
+  <div class="bobble-font mt-5 fs-2 text-center">
     <p>Choose which form you want to access:</p>
     <button class="arco-font btn btn-danger text-dark" @click="activeComp = BugsnaxForm">Bugsnax</button>
     <button class="arco-font btn btn-secondary " @click="activeComp = GrumpusForm">Grumpus</button>
