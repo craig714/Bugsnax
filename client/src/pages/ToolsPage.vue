@@ -5,7 +5,8 @@ import { toolsService } from '@/services/ToolsService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
-
+// @ts-ignore
+import toolsImg from '@/assets/img/thumb-1920-523671.jpg'
 
 
 const tools = computed(() => AppState.tools)
@@ -30,14 +31,26 @@ async function getAllTools() {
 
 
 <template>
-  <div class="container">
-    <div class="row">
-      <div v-for="tool in tools" :key="tool.id" class="col-12 col-md-3">
-        <ToolsCard :toolsProp="tool" />
+
+  <body :style="{ backgroundImage: `url(${toolsImg})` }">
+
+    <div class="container">
+      <div class="row">
+        <div v-for="tool in tools" :key="tool.id" class="col-12 col-md-3">
+          <ToolsCard :toolsProp="tool" />
+        </div>
       </div>
     </div>
-  </div>
+  </body>
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+body {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100dvh;
+  padding: 2rem;
+}
+</style>

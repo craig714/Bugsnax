@@ -6,6 +6,7 @@ import { Identity } from '@bcwdev/auth0provider-client';
 
 const account = computed(() => AppState.account)
 const identity = computed(() => AppState.identity)
+const identity = computed(() => AppState.identity)
 
 </script>
 
