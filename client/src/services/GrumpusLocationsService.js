@@ -4,6 +4,10 @@ import { GrumpusLocation } from "@/models/GrumpusLocation.js"
 import { AppState } from "@/AppState.js"
 
 class GrumpusesLocationService {
+  async getGrumpusLocationsByGrumpusId(grumpusId) {
+    const response = await api.get(`api/grumpusLocations/grumpuses/${grumpusId}`)
+    logger.log('getGrumpusLocationsByGrumpusId returned ', response.data)
+  }
   async getLocationsByGrumpusId(grumpusId) {
     const response = await api.get(`api/grumpusLocations/${grumpusId}`)
     logger.log('Got grumpus locations!', response.data)

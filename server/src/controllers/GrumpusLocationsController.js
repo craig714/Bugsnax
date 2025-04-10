@@ -7,7 +7,7 @@ export class GrumpusLocationsController extends BaseController {
     super('api/grumpusLocations')
     this.router
       .get('', this.getAllGrumpusLocations)
-      .get('/:grumpusId', this.getGrumpusLocationsByGrumpusId)
+      .get('/grumpuses/:grumpusId', this.getGrumpusLocationsByGrumpusId)
       .get('/locations/:grumpusLocations', this.getGrumpusLocationsByLocationId)
       .get('/:grumpusLocationId', this.getGrumpusLocationById)
       .post('', this.createGrumpusLocation)
