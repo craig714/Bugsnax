@@ -137,4 +137,9 @@ svg {
   max-height: 100%;
   background-color: black;
 }
+
+path:hover {
+  filter: invert(100%);
+
+}
 </style>
