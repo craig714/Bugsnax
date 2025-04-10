@@ -42,7 +42,7 @@ async function getToolById() {
         <img class="cover-img" :src="tool.picture" alt="">
       </div>
       <div class="mt-5 fs-4">
-        <p>Description:</p> <span>{{ tool.description }}</span>
+        <p class="fw-bold">Description:</p> <span>{{ tool.description }}</span>
       </div>
     </div>
   </div>
