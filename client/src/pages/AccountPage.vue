@@ -13,6 +13,8 @@ const account = computed(() => AppState.account)
       <h1>Welcome {{ account.name }}</h1>
       <img class="rounded" :src="account.picture" alt="" />
       <p>{{ account.email }}</p>
+      <p>{{ account }}</p>
+      <p></p>
       <div>
         <AdminPage />
       </div>
