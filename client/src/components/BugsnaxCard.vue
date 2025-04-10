@@ -19,7 +19,7 @@ defineProps({
       <img class="cover-img" :src="bugsnaxProp.picture" alt="">
       <div class="card-body">
         <h5 class="card-title arco-font">{{ bugsnaxProp.name }}</h5>
-        <p class="card-text bobble-font"> {{ bugsnaxProp.description }}</p>
+
       </div>
     </div>
   </RouterLink>

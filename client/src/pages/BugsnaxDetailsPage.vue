@@ -112,7 +112,7 @@ async function getBugsnaxById() {
 <style lang="scss" scoped>
 .cover-img {
   width: 100%;
-  max-height: 600px;
+  max-height: 80dvh;
   object-fit: cover;
   border-radius: 10px;
 }

@@ -68,6 +68,11 @@ const routes = [
     component: loadPage('SaucesDetailsPage')
   },
   {
+    path: '/tools/:toolId',
+    name: 'ToolDetails',
+    component: loadPage('ToolsDetailsPage')
+  },
+  {
     path: '/sizzlinsands',
     name: 'Sizzlin Sands',
     component: loadPage('LocationDetailsPage')
