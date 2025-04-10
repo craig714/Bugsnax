@@ -6,7 +6,7 @@ import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 // @ts-ignore
-import bugsnaxBackground from '@/assets/img/Bugsnax_loading.webp';
+import bugsnaxBG from '@/assets/img/Bugsnax_loading.webp';
 
 const bugsnax = computed(() => AppState.bugsnax)
 
@@ -38,7 +38,7 @@ async function getAllBugsnax() {
 
 <template>
 
-  <body :style="{ backgroundImage: `url(${bugsnaxBackground})` }">
+  <body :style="{ backgroundImage: `url(${bugsnaxBG})` }">
 
     <div class="container">
       <div class="row">
