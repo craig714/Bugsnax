@@ -1,3 +1,4 @@
+import { Auth0Provider } from "@bcwdev/auth0provider";
 import { sauceService } from "../services/SauceService.js";
 import BaseController from "../utils/BaseController.js";
 
@@ -7,6 +8,8 @@ export class SauceController extends BaseController {
     this.router
       .get('', this.getAllSauces)
       .get('/:sauceId', this.getSauceById)
+      .use(Auth0Provider.getAuthorizedUserInfo)
+      .use(Auth0Provider.hasRoles('admin'))
       .post('', this.createSauce)
       .put('/:sauceId', this.updateSauce)
       .delete('/:sauceId', this.deleteSauce)

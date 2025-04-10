@@ -9,7 +9,8 @@ export class ToolsController extends BaseController {
     this.router
       .get('', this.getAllTools)
       .get('/:toolId', this.getToolById)
-      // .use(Auth0Provider.getAuthorizedUserInfo)
+      .use(Auth0Provider.getAuthorizedUserInfo)
+      .use(Auth0Provider.hasRoles('admin'))
       .post('', this.createTool)
       .put('/:toolId', this.updateTool)
       .delete('/:toolId', this.deleteTool)
