@@ -31,6 +31,10 @@ export const AppState = reactive({
 
   activeSauce: null,
   /** @type {import('./models/SauceLocation.js').SauceLocation[]} user info from the database*/
-  sauceLocation: []
+  sauceLocation: [],
+  /** @type {import('./models/Tool.js').Tool} user info from the database*/
+  activeTool: null,
+
+
 })
 
