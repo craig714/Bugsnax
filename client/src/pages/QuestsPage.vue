@@ -1,5 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import QuestCard from '@/components/QuestCard.vue';
 import { questsService } from '@/services/QuestsService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
@@ -29,7 +30,13 @@ async function getAllQuests() {
 
 
 <template>
-  <div></div>
+  <div class="container">
+    <div class="row">
+      <div v-for="quest in quests" :key="quest.id" class="col-md-3">
+        <QuestCard :questProp="quest" />
+      </div>
+    </div>
+  </div>
 </template>
 
 
