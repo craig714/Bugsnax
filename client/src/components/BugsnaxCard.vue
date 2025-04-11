@@ -14,7 +14,7 @@ defineProps({
 
 
 <template>
-  <RouterLink :to="{ name: 'BugsnaxDetails', params: { bugsnaxId: bugsnaxProp.id } }">
+  <RouterLink :to="{ name: 'BugsnaxDetails', params: { bugsnaxId: bugsnaxProp?.id } }">
     <div class="card mt-3 mb-3">
       <img class="cover-img" :src="bugsnaxProp.picture" alt="">
       <div class="card-body">
