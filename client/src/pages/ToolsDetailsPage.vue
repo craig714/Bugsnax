@@ -5,7 +5,8 @@ import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-
+// @ts-ignore
+import toolsImg from '@/assets/img/thumb-1920-523671.jpg'
 
 
 
@@ -33,6 +34,7 @@ async function getToolById() {
 
 
 <template>
+  <body class="arco-font arco-font-shadow" :style="{ backgroundImage: `url(${toolsImg})` }">
   <div v-if="tool" class="container">
     <div class="row">
       <div class="col-12">
@@ -46,6 +48,7 @@ async function getToolById() {
       </div>
     </div>
   </div>
+</body>
 </template>
 
 
