@@ -129,15 +129,18 @@ async function getSaucesForThisLocation() {
             </div>
           </div>
           <div class="row">
+            <div>Grumpus:</div>
             <div v-for="grumpus in grumpuses" :key="grumpus.id" class="col-md-3">
               <GrumpusesCard :grumpusProp="grumpus" />
             </div>
           </div>
           <div class="row">
+            <div>Tools</div>
             <div v-for="tool in tools" :key="tool.id" class="col-md-3">
               <ToolsCard :toolsProp="tool" />
             </div>
           </div>
+          <div>sauces</div>
           <!-- <div v-for="sauce in sauces" :key="sauce.id" class="row col-md-3">
             <SaucesCard :sauceProp="sauce" />
           </div> -->

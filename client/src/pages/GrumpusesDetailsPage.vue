@@ -36,6 +36,8 @@ async function getGrumpusesById() {
   try {
     const grumpusId = route.params.grumpusId
     await grumpusesService.getGrumpusesById(grumpusId)
+    logger.log('this bug', AppState.activeGrumpus)
+
   }
   catch (error) {
     Pop.error(error, 'Could not get grumpuses by Id');
@@ -86,7 +88,7 @@ async function getGrumpusesById() {
             </div>
             <div>
               <span class="mt-5 fs-4">disLikes:</span>
-              <div v-if="grumpus.likes && grumpus.dislikes.length > 0">
+              <div v-if="grumpus.dislikes && grumpus.dislikes.length > 0">
                 <div v-for="dislike in grumpus.dislikes" :key="dislike.name">
                   {{ dislike.name }}
                 </div>
