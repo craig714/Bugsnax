@@ -12,6 +12,7 @@ import { useRoute } from 'vue-router';
 
 const location = computed(() => AppState.activeLocation)
 const bugsnax = computed(() => AppState.bugsnax)
+const bugsnaxLocations = computed(() => AppState.bugsnaxLocations)
 const grumpuses = computed(() => AppState.grumpuses)
 const sauces = computed(() => AppState.sauces)
 const tools = computed(() => AppState.tools)
@@ -81,7 +82,7 @@ function setActiveLocation() {
         <div class="mt-3 fs-4">
           <div class="row">
             <p class="fw-bold">Bugsnax:</p>
-            <div v-for="bugsnak in bugsnax" :key="bugsnak.id" class="col-md-2">
+            <div v-for="bugsnak in bugsnax" :key="bugsnak?.id" class="col-md-2">
               <BugsnaxCard :bugsnaxProp="bugsnak" />
             </div>
           </div>

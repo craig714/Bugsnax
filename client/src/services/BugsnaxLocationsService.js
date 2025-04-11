@@ -2,13 +2,17 @@ import { logger } from "@/utils/Logger.js"
 import { api } from "./AxiosService.js"
 import { BugsnaxLocation } from "@/models/BugsnaxLocation.js"
 import { AppState } from "@/AppState.js"
+import { Bugsnax } from "@/models/Bugsnax.js"
 
 class BugsnaxLocationService {
   async getBugsnaxLocationsByLocationId(locationId) {
     const response = await api.get(`api/bugsnaxLocations/locations/${locationId}`)
     // logger.log('getBugsnaxLocationsByLocationId returned ', response.data)
     const bugsnaxLocations = response.data.map(pojo => new BugsnaxLocation(pojo))
-    AppState.bugsnax = bugsnaxLocations
+    const bugsnax = bugsnaxLocations.map(pojo => new Bugsnax(pojo.bugsnax))
+    AppState.bugsnaxLocations = bugsnaxLocations
+    AppState.bugsnax = bugsnax
+    // logger.log('AppState.bugsnaxLocations is ', AppState.bugsnaxLocations)
     logger.log('AppState.bugsnax is ', AppState.bugsnax)
   }
 
