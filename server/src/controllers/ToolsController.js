@@ -9,6 +9,7 @@ export class ToolsController extends BaseController {
     this.router
       .get('', this.getAllTools)
       .get('/:toolId', this.getToolById)
+      .get('/locations/:locationId', this.getToolsByLocationId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .use(Auth0Provider.hasPermissions('write'))
       .post('', this.createTool)
@@ -43,6 +44,21 @@ export class ToolsController extends BaseController {
       next(error)
     }
   }
+  /**
+   * @param {import("express").Request} request
+   * @param {import("express").Response} response
+   * @param {import("express").NextFunction} next
+   */
+  async getToolsByLocationId(request, response, next) {
+    try {
+      const locationId = request.params.locationId
+      const tool = await toolsService.getToolByLocationId(locationId)
+      response.send(tool)
+    } catch (error) {
+      next(error)
+    }
+  }
+
   /**
    * @param {import("express").Request} request
    * @param {import("express").Response} response

@@ -1,8 +1,12 @@
 <script setup>
 import { AppState } from '@/AppState.js';
 import BugsnaxCard from '@/components/BugsnaxCard.vue';
+import GrumpusesCard from '@/components/GrumpusesCard.vue';
+import ToolsCard from '@/components/ToolsCard.vue';
 import { bugsnaxLocationService } from '@/services/BugsnaxLocationsService.js';
+import { grumpusesLocationService } from '@/services/GrumpusLocationsService.js';
 import { locationsService } from '@/services/LocationsService.js';
+import { toolsService } from '@/services/ToolsService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
@@ -12,7 +16,7 @@ import { useRoute } from 'vue-router';
 
 const location = computed(() => AppState.activeLocation)
 const bugsnax = computed(() => AppState.bugsnax)
-const bugsnaxLocations = computed(() => AppState.bugsnaxLocations)
+// const bugsnaxLocations = computed(() => AppState.bugsnaxLocations)
 const grumpuses = computed(() => AppState.grumpuses)
 const sauces = computed(() => AppState.sauces)
 const tools = computed(() => AppState.tools)
@@ -37,21 +41,12 @@ async function getAllLocations() {
     await locationsService.getAllLocations()
     setActiveLocation()
     getBugsnaxForThisLocation()
+    getGrumpusesForThisLocation()
+    getToolsForThisLocation()
   }
   catch (error) {
     Pop.error(error, 'Could not get all locations');
     logger.log('Could not get all locations'.toUpperCase(), error)
-  }
-}
-
-async function getBugsnaxForThisLocation() {
-  try {
-    const locationId = location.value.id
-    await bugsnaxLocationService.getBugsnaxLocationsByLocationId(locationId)
-  }
-  catch (error) {
-    Pop.error(error, 'Could not get bugsnaxLocations');
-    logger.log('Could not get bugsnaxLocations'.toUpperCase(), error)
   }
 }
 
@@ -63,6 +58,39 @@ function setActiveLocation() {
   catch (error) {
     Pop.error(error, 'Could not Set activeLocation');
     logger.log('Could not Set activeLocation'.toUpperCase(), error)
+  }
+}
+
+async function getBugsnaxForThisLocation() {
+  try {
+    const locationId = location.value.id
+    await bugsnaxLocationService.getBugsnaxLocationsByLocationId(locationId)
+  }
+  catch (error) {
+    Pop.error(error, 'Could not get bugsnaxLocations for this location');
+    logger.log('Could not get bugsnaxLocations for this location'.toUpperCase(), error)
+  }
+}
+
+async function getGrumpusesForThisLocation() {
+  try {
+    const locationId = location.value.id
+    await grumpusesLocationService.getGrumpusLocationByLocationId(locationId)
+  }
+  catch (error) {
+    Pop.error(error, 'Could not get grumpusesLocations for this location');
+    logger.log('Could not get grumpusesLocations for this location'.toUpperCase(), error)
+  }
+}
+
+async function getToolsForThisLocation() {
+  try {
+    const locationId = location.value.id
+    await toolsService.getToolsByLocationId(locationId)
+  }
+  catch (error) {
+    Pop.error(error, 'Could not get tools for this location');
+    logger.log('Could not get tools for this location'.toUpperCase(), error)
   }
 }
 
@@ -87,8 +115,13 @@ function setActiveLocation() {
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
-
+            <div v-for="grumpus in grumpuses" :key="grumpus.id" class="col-md-3">
+              <GrumpusesCard :grumpusProp="grumpus" />
+            </div>
+          </div>
+          <div class="row">
+            <div v-for="tool in tools" :key="tool.id" class="col-md-3">
+              <ToolsCard :toolsProp="tool" />
             </div>
           </div>
         </div>

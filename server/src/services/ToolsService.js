@@ -10,6 +10,10 @@ class ToolsService {
     const tool = await dbContext.Tools.findById(toolId)
     return tool
   }
+  async getToolByLocationId(locationId) {
+    const tool = await dbContext.Tools.find({ locationId: locationId })
+    return tool
+  }
   async createTool(toolData) {
     //NOTE - remember to implement auth0 check
     const tool = await dbContext.Tools.create(toolData)

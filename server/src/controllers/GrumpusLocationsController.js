@@ -9,7 +9,7 @@ export class GrumpusLocationsController extends BaseController {
       .get('', this.getAllGrumpusLocations)
       .get('/quests/:questId', this.getGrumpusLocationsByQuestId)
       .get('/:grumpusId', this.getGrumpusLocationsByGrumpusId)
-      // .get('/locations/:grumpusLocations', this.getGrumpusLocationsByLocationId)
+      .get('/locations/:locationId', this.getGrumpusLocationsByLocationId)
       .get('/:grumpusLocationId', this.getGrumpusLocationById)
       .post('', this.createGrumpusLocation)
       .delete('/:grumpusLocationId', this.deleteGrumpusLocation)
