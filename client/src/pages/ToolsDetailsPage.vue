@@ -59,5 +59,13 @@ async function getToolById() {
   object-fit: cover;
   border-radius: 10px;
   border: 3px solid #ffffff
+  
+}
+body {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100dvh;
+  padding: 2rem;
 }
 </style>
