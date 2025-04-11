@@ -6,10 +6,11 @@ import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+// @ts-ignore
+import bugsnaxSauces from '@/assets/img/bugsnaxSauces.webp'
 
 
-
-const saucesLocations = computed(() => AppState.sauceLocation)
+const saucesLocations = computed(() => AppState.sauceLocations)
 const sauces = computed(() => AppState.activeSauce)
 const route = useRoute()
 
@@ -52,13 +53,14 @@ async function getSaucesById() {
 
 
 <template>
+  <body class="arco-font arco-font-shadow" :style="{ backgroundImage: `url(${bugsnaxSauces})` }">
   <div v-if="sauces" class="container">
     <div class="row">
       <div class="col-12">
         <div class="fw-bold fs-1 d-flex justify-content-center">
           {{ sauces.name }}
         </div>
-        <img class="cover-img" :src="sauces.picture" alt="">
+        <img class="cover-img .pic-boarder" :src="sauces.picture" alt="">
       </div>
       <div class=" mt-5 fs-4">
         <p class="fw-bold">Location/Locations:</p>
@@ -74,6 +76,7 @@ async function getSaucesById() {
       </div>
     </div>
   </div>
+</body>
 </template>
 
 
@@ -83,5 +86,10 @@ async function getSaucesById() {
   max-height: 80dvh;
   object-fit: cover;
   border-radius: 10px;
+  border: 3px solid #ffffff
 }
+
+
+
+
 </style>

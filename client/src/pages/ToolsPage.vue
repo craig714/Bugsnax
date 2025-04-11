@@ -33,8 +33,7 @@ async function getAllTools() {
 <template>
 
   <body :style="{ backgroundImage: `url(${toolsImg})` }">
-
-    <div class="container">
+ <div class="container">
       <div class="row">
         <div v-for="tool in tools" :key="tool.id" class="col-12 col-md-3">
           <ToolsCard :toolsProp="tool" />

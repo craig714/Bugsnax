@@ -5,7 +5,8 @@ import { questsService } from '@/services/QuestsService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
-
+// @ts-ignore
+import questPic from '@/assets/img/journal.webp'
 
 
 const quests = computed(() => AppState.quests)
@@ -28,8 +29,7 @@ async function getAllQuests() {
 
 
 
-// @ts-ignore
-import questPic from '@/assets/img/journal.webp'
+
 
 
 

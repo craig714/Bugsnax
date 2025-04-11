@@ -7,7 +7,7 @@ import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 // @ts-ignore
 import bugsnaxBG from '@/assets/img/Bugsnax_loading.webp';
-import App from '@/App.vue';
+
 
 const bugsnax = computed(() => AppState.bugsnax)
 
