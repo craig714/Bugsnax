@@ -7,12 +7,15 @@ import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 // @ts-ignore
 import bugsnaxBG from '@/assets/img/Bugsnax_loading.webp';
+import App from '@/App.vue';
 
 const bugsnax = computed(() => AppState.bugsnax)
 
 
 
 onMounted(() => {
+  AppState.activeLocation = null
+  AppState.bugsnax = []
   getAllBugsnax()
 })
 
@@ -38,12 +41,13 @@ async function getAllBugsnax() {
 
 <template>
 
-  <body :style="{ backgroundImage: `url(${bugsnaxBG})` }">
-
-    <div class="container">
-      <div class="row">
-        <div v-for="bug in bugsnax" :key="bug.id" class="col-12 col-md-3">
-          <BugsnaxCard :bugsnaxProp="bug" />
+  <body v-if="bugsnax" :style="{ backgroundImage: `url(${bugsnaxBG})` }">
+    <div>
+      <div class="container">
+        <div class="row">
+          <div v-for="bug in bugsnax" :key="bug.id" class="col-12 col-md-3">
+            <BugsnaxCard :bugsnaxProp="bug" />
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import BugsnaxCard from '@/components/BugsnaxCard.vue';
 import { bugsnaxLocationService } from '@/services/BugsnaxLocationsService.js';
 import { locationsService } from '@/services/LocationsService.js';
 import { logger } from '@/utils/Logger.js';
@@ -11,10 +12,22 @@ import { useRoute } from 'vue-router';
 
 const location = computed(() => AppState.activeLocation)
 const bugsnax = computed(() => AppState.bugsnax)
+const grumpuses = computed(() => AppState.grumpuses)
+const sauces = computed(() => AppState.sauces)
+const tools = computed(() => AppState.tools)
+const quests = computed(() => AppState.quests)
+
 
 const route = useRoute()
 
 onMounted(() => {
+  AppState.activeLocation = null
+  AppState.bugsnax = []
+  AppState.grumpuses = []
+  AppState.sauces = []
+  AppState.tools = []
+  AppState.quests = []
+
   getAllLocations()
 })
 
@@ -66,10 +79,16 @@ function setActiveLocation() {
           <img class="cover-img mt-4" :src="location?.picture" :alt="`Picture of ${location?.name}`">
         </div>
         <div class="mt-3 fs-4">
-          <p class="fw-bold">Bugsnax:</p>
-          <div v-for="bugsnak in bugsnax" :key="bugsnak.id">
-            <p>{{ bugsnak.name }}</p>
-            <p>{{ bugsnak.picture }}</p>
+          <div class="row">
+            <p class="fw-bold">Bugsnax:</p>
+            <div v-for="bugsnak in bugsnax" :key="bugsnak.id" class="col-md-2">
+              <BugsnaxCard :bugsnaxProp="bugsnak" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+
+            </div>
           </div>
         </div>
       </div>

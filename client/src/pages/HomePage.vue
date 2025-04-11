@@ -6,8 +6,8 @@ import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 
 
-const locations = computed(() => AppState.locations)
-const activeLocation = computed(() => AppState.activeLocation)
+// const locations = computed(() => AppState.locations)
+// const activeLocation = computed(() => AppState.activeLocation)
 
 onMounted(() => {
   // getAllLocations()
