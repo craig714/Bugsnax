@@ -2,10 +2,12 @@
 import { AppState } from '@/AppState.js';
 import BugsnaxCard from '@/components/BugsnaxCard.vue';
 import GrumpusesCard from '@/components/GrumpusesCard.vue';
+import SaucesCard from '@/components/SaucesCard.vue';
 import ToolsCard from '@/components/ToolsCard.vue';
 import { bugsnaxLocationService } from '@/services/BugsnaxLocationsService.js';
 import { grumpusesLocationService } from '@/services/GrumpusLocationsService.js';
 import { locationsService } from '@/services/LocationsService.js';
+import { saucesService } from '@/services/SaucesService.js';
 import { toolsService } from '@/services/ToolsService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
@@ -43,6 +45,7 @@ async function getAllLocations() {
     getBugsnaxForThisLocation()
     getGrumpusesForThisLocation()
     getToolsForThisLocation()
+    getSaucesForThisLocation()
   }
   catch (error) {
     Pop.error(error, 'Could not get all locations');
@@ -94,6 +97,17 @@ async function getToolsForThisLocation() {
   }
 }
 
+async function getSaucesForThisLocation() {
+  try {
+    const locationId = location.value.id
+    await saucesService.getSaucesByLocationId(locationId)
+  }
+  catch (error) {
+    Pop.error(error, 'Could not get Sauces for this location');
+    logger.log('Could not get Sauces for this location'.toUpperCase(), error)
+  }
+}
+
 </script>
 
 
@@ -124,6 +138,9 @@ async function getToolsForThisLocation() {
               <ToolsCard :toolsProp="tool" />
             </div>
           </div>
+          <!-- <div v-for="sauce in sauces" :key="sauce.id" class="row col-md-3">
+            <SaucesCard :sauceProp="sauce" />
+          </div> -->
         </div>
       </div>
     </div>
