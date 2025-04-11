@@ -7,12 +7,24 @@
 
 @font-face {
   font-family: bubble;
+  font-weight: 300;
   src: url('../fonts/Bobbleboddy.woff');
 }
 
 @font-face {
   font-family: balsamiq;
   src: url('../fonts/BalsamiqSans-Regular.woff');
+}
+
+@font-face {
+  font-family: bobblebodythin;
+  src: url('../fonts/BobbleboddyThin.woff');
+}
+
+@font-face {
+  font-family: bobblebodylight;
+  font-weight: 300;
+  src: url('../fonts/BobbleboddyLight.woff');
 }
 
 .arco-font {
@@ -27,6 +39,13 @@
   font-family: balsomiq;
 }
 
+.bobblethin {
+  font-family: bobblebodythin;
+}
+
+.bobblelight {
+  font-family: bobblebodylight;
+}
 
 #app {
   display: flex;
@@ -38,6 +57,7 @@ main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  background-color: #c6bcbe;
 }
 
 #pop-toast-container {
@@ -48,30 +68,26 @@ main {
 }
 
 
-  .bugsnax-color{
-    color: #df1516
-  }
+.bugsnax-color {
+  color: #df1516
+}
 
-  .grumpus-color{
-    color: #a845af
-  }
+.grumpus-color {
+  color: #a845af
+}
 
-  .tools-color{
-    color: #f8df37
-  }
+.tools-color {
+  color: #f8df37
+}
 
-  .sauce-color{
-    color: #7fc86e
-  }
+.sauce-color {
+  color: #7fc86e
+}
 
-  .quest-color{
-    color: #234b89
-  }
-  
-  .nav-bg{
-    background-color: rgb(37, 20, 3)
-  }
+.quest-color {
+  color: #234b89
+}
 
-  
-
-
+.nav-bg {
+  background-color: rgb(37, 20, 3)
+}
