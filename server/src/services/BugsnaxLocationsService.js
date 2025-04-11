@@ -4,7 +4,7 @@ import { dbContext } from "../db/DbContext.js"
 class BugsnaxLocationsService {
 
   async getAllBugsnaxLocations() {
-    const bugsnaxLocations = await dbContext.BugsnaxLocations.find()
+    const bugsnaxLocations = await dbContext.BugsnaxLocations.find().populate('bugsnax location')
     return bugsnaxLocations
   }
 
@@ -17,7 +17,7 @@ class BugsnaxLocationsService {
 
 
   async getBugsnaxLocationsByLocationId(locationId) {
-    const bugsnaxLocations = dbContext.BugsnaxLocations.find({ locationId: locationId })
+    const bugsnaxLocations = dbContext.BugsnaxLocations.find({ locationId: locationId }).populate('bugsnax location')
     return bugsnaxLocations
   }
   async createBugsnaxLocation(bugsnaxLocationData) {
@@ -27,11 +27,11 @@ class BugsnaxLocationsService {
     return bugsnaxLocation
   }
   async getBugsnaxLocationById(bugsnaxLocationId) {
-    const bugsnaxLocation = await dbContext.BugsnaxLocations.findById(bugsnaxLocationId)
+    const bugsnaxLocation = await dbContext.BugsnaxLocations.findById(bugsnaxLocationId).populate('bugsnax location')
     return bugsnaxLocation
   }
   async updateBugsnaxLocation(bugsnaxLocationId, bugsnaxLocationData) {
-    const bugsnaxLocationToUpdate = await dbContext.BugsnaxLocations.findById(bugsnaxLocationId)
+    const bugsnaxLocationToUpdate = await dbContext.BugsnaxLocations.findById(bugsnaxLocationId).populate('bugsnax location')
 
     bugsnaxLocationToUpdate.bugsnaxId = bugsnaxLocationData.bugsnaxId ?? bugsnaxLocationToUpdate.bugsnaxId
     bugsnaxLocationToUpdate.locationId = bugsnaxLocationData.locationId ?? bugsnaxLocationToUpdate.locationId
