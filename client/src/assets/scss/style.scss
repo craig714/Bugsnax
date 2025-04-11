@@ -17,6 +17,15 @@
 
 .arco-font {
   font-family: ARCO;
+ font-weight: 400;
+}
+
+.arco-font-shadow {
+  color: #ffffff; 
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.9),   
+    -2px -2px 4px rgba(0, 0, 0, 0.9), 
+    0 0 6px rgba(0, 0, 0, 0.7);       
 }
 
 .bobble-font {

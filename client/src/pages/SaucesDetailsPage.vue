@@ -9,7 +9,7 @@ import { useRoute } from 'vue-router';
 
 
 
-const saucesLocations = computed(() => AppState.sauceLocation)
+const saucesLocations = computed(() => AppState.sauceLocations)
 const sauces = computed(() => AppState.activeSauce)
 const route = useRoute()
 
