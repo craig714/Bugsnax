@@ -7,7 +7,8 @@ import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-
+// @ts-ignore
+import questPic from '@/assets/img/journal.webp'
 
 
 // const grumpusLocations = computed(() => AppState.grumpusLocations)
@@ -50,6 +51,9 @@ async function getGrumpusLocationByQuestId() {
 
 
 <template>
+  <body class="arco-font-shadow arco-font" :style="{ backgroundImage: `url(${questPic})` }">
+    
+ 
   <div v-if="activeGrumpusLocation" class="container">
     <div class="row">
       <div class="col-12">
@@ -66,9 +70,9 @@ async function getGrumpusLocationByQuestId() {
         </div>
         <div class="row">
           <div class="col-md-6">
-            <div class="bobble-font">
-              <p class="arco-font">Description:</p>
-              <p class="bobble-font">{{ activeGrumpusLocation[0].quest?.description }}</p>
+            <div>
+              <p>Description:</p>
+              <p >{{ activeGrumpusLocation[0].quest?.description }}</p>
             </div>
             <div v-for="questStep in activeGrumpusLocation[0].quest?.steps" :key="questStep.title" >
               <QuestStepsCard :questProp="questStep" />
@@ -78,6 +82,7 @@ async function getGrumpusLocationByQuestId() {
       </div>
     </div>
   </div>
+</body>
 </template>
 
 
@@ -91,6 +96,14 @@ async function getGrumpusLocationByQuestId() {
 
 .quest-giver-img{
   max-height: 20dvh;
+}
+
+body {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100dvh;
+  padding: 2rem;
 }
 
 </style>

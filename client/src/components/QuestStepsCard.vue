@@ -14,12 +14,12 @@ const props = defineProps({
 
 <template>
 
-  <div class="card mt-3 mb-3">
+  <div class="card mt-3 mb-3 arco-font-shadow">
     <details>
       <summary class="ms-3">
-        <p class="arco-font d-inline">{{ questProp.title }}</p>
+        <p class=" d-inline">{{ questProp.title }}</p>
       </summary>
-      <p class="bobble-font ms-4">- {{ questProp.body }}</p>
+      <p class="ms-4 bg-yellow rounded-pill">- {{ questProp.body }}</p>
     </details>
   </div>
 
