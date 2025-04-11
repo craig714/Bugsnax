@@ -60,7 +60,7 @@ async function getSaucesById() {
         <div class="fw-bold fs-1 d-flex justify-content-center">
           {{ sauces.name }}
         </div>
-        <img class="cover-img" :src="sauces.picture" alt="">
+        <img class="cover-img .pic-boarder" :src="sauces.picture" alt="">
       </div>
       <div class=" mt-5 fs-4">
         <p class="fw-bold">Location/Locations:</p>
@@ -86,5 +86,10 @@ async function getSaucesById() {
   max-height: 80dvh;
   object-fit: cover;
   border-radius: 10px;
+  border: 3px solid #ffffff
 }
+
+
+
+
 </style>

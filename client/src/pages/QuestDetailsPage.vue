@@ -92,6 +92,7 @@ async function getGrumpusLocationByQuestId() {
   max-height: 600px;
   object-fit: cover;
   border-radius: 10px;
+  border: 3px solid #ffffff
 }
 
 .quest-giver-img{

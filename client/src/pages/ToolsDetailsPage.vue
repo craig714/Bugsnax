@@ -58,5 +58,6 @@ async function getToolById() {
   max-height: 80dvh;
   object-fit: cover;
   border-radius: 10px;
+  border: 3px solid #ffffff
 }
 </style>
