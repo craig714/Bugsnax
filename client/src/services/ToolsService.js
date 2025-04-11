@@ -34,7 +34,7 @@ class ToolsService {
     // logger.log('getToolsByLocationId returned ', response.data)
     const tools = response.data.map(pojo => new Tool(pojo))
     AppState.tools = tools
-    logger.log('AppState.tools is now', AppState.tools)
+    // logger.log('AppState.tools is now', AppState.tools)
   }
 }
 

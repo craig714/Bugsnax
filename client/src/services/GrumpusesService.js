@@ -7,7 +7,7 @@ class GrumpusesService {
 
   async getAllGrumpuses() {
     const response = await api.get('api/grumpus')
-    logger.log('Got all grumpuses!', response.data)
+    // logger.log('Got all grumpuses!', response.data)
     const grumpus = response.data.map(pojo => new Grumpus(pojo))
     AppState.grumpuses = grumpus
   }
@@ -17,7 +17,7 @@ class GrumpusesService {
 
   async getGrumpusesById(grumpusId) {
     const response = await api.get(`api/grumpus/${grumpusId}`)
-    logger.log('Got Grumpus by Id', response.data)
+    // logger.log('Got Grumpus by Id', response.data)
     const grumpus = new Grumpus(response.data)
     AppState.activeGrumpus = grumpus
   }
