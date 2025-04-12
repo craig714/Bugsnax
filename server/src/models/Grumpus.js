@@ -5,7 +5,7 @@ export const GrumpusSchema = new Schema({
   picture: { type: String, required: true },
   description: { type: String, required: true },
   likes: [{ type: Object, required: true }],
-  dislikes: [{ type: Object, required: true }],
+  dislikes: [{ type: Object, required: true }]
 
 },
   {

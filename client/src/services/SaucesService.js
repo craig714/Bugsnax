@@ -15,7 +15,7 @@ class SaucesService {
 
   async getAllSauces() {
     const response = await api.get(`api/sauces`)
-    logger.log('Got All sauces!', response.data)
+    // logger.log('Got All sauces!', response.data)
     const sauce = response.data.map(pojo => new Sauce(pojo))
     AppState.sauces = sauce
   }
@@ -23,10 +23,17 @@ class SaucesService {
 
   async getSaucesById(sauceId) {
     const response = await api.get(`api/sauces/${sauceId}`)
-    logger.log('Got Sauce by Id', response.data)
+    // logger.log('Got Sauce by Id', response.data)
     const sauce = new Sauce(response.data)
     AppState.activeSauce = sauce
+  }
 
+  async getSaucesByIdLike(sauceId) {
+    const response = await api.get(`api/sauces/${sauceId}`)
+    // logger.log('Got Sauce by Id', response.data)
+    const sauce = new Sauce(response.data)
+    AppState.like = sauce
+    logger.log('like is now ', AppState.like)
   }
 
 }

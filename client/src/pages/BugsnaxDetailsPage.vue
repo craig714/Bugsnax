@@ -8,11 +8,11 @@ import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 // @ts-ignore
 import bugsnaxBG from '@/assets/img/Bugsnax_loading.webp';
+import LikesDislikesFearsCard from '@/components/LikesDislikesFearsCard.vue';
 
 const bugsnaxLocations = computed(() => AppState.bugsnaxLocations)
 const bugsnax = computed(() => AppState.activeBugsnax)
 const route = useRoute()
-
 
 
 
@@ -81,31 +81,46 @@ async function getBugsnaxById() {
           </div>
           <div class="d-flex justify-content-between mt-5">
             <div>
-              <span class="fw-bold fs-5">Likes:</span>
-              <div v-if="bugsnax.likes && bugsnax.likes.length > 0">
-                <div v-for="like in bugsnax.likes" :key="like.name">
-                  {{ like.name }}
+              <div class="row">
+                <div class="col-md-2">
+                  <span class="fw-bold fs-5">Likes:</span>
+                  <div v-if="bugsnax.likes && bugsnax.likes.length > 0">
+                    <div v-for="like in bugsnax.likes" :key="like.name">
+                      <div v-if="like.type == 'bugsnax'">
+                        <LikesDislikesFearsCard :bugsnaxProp="like" />
+                      </div>
+                      <div v-if="like.type == 'grumpus'">
+                        <LikesDislikesFearsCard :grumpusProp="like" />
+                      </div>
+                      <div v-if="like.type == 'sauce'">
+                        <LikesDislikesFearsCard :sauceProp="like" />
+                      </div>
+                      <div v-if="like.type == 'tool'">
+                        <LikesDislikesFearsCard :toolsProp="like" />
+                      </div>
+                    </div>
+                  </div>
+                  <p v-else>None</p>
+                </div>
+                <div>
+                  <span class="fw-bold fs-5">Dislikes:</span>
+                  <div v-if="bugsnax.dislikes && bugsnax.dislikes.length > 0">
+                    <div v-for="dislike in bugsnax.dislikes" :key="dislike.name">
+                      {{ dislike.name }}
+                    </div>
+                  </div>
+                  <p v-else>None</p>
+                </div>
+                <div>
+                  <span class="fw-bold fs-5">Fears:</span>
+                  <div v-if="bugsnax.fears && bugsnax.fears.length > 0">
+                    <div v-for="fear in bugsnax.fears" :key="fear.name">
+                      {{ fear.name }}
+                    </div>
+                  </div>
+                  <p v-else>None</p>
                 </div>
               </div>
-              <p v-else>None</p>
-            </div>
-            <div>
-              <span class="fw-bold fs-5">Dislikes:</span>
-              <div v-if="bugsnax.dislikes && bugsnax.dislikes.length > 0">
-                <div v-for="dislike in bugsnax.dislikes" :key="dislike.name">
-                  {{ dislike.name }}
-                </div>
-              </div>
-              <p v-else>None</p>
-            </div>
-            <div>
-              <span class="fw-bold fs-5">Fears:</span>
-              <div v-if="bugsnax.fears && bugsnax.fears.length > 0">
-                <div v-for="fear in bugsnax.fears" :key="fear.name">
-                  {{ fear.name }}
-                </div>
-              </div>
-              <p v-else>None</p>
             </div>
           </div>
         </div>

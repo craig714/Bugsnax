@@ -7,7 +7,7 @@ export const BugsnaxSchema = new Schema({
   strategy: { type: String, required: true },
   likes: [{ type: Object, required: true }],
   dislikes: [{ type: Object, required: true }],
-  fears: [{ type: Object, required: true }],
+  fears: [{ type: Object, required: true }]
 
 },
   {

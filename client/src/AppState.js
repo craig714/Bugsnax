@@ -47,6 +47,6 @@ export const AppState = reactive({
   /** @type {import('./models/Tool.js').Tool} user info from the database*/
   activeTool: null,
 
-
+  like: null
 })
 
