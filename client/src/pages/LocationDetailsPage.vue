@@ -2,12 +2,13 @@
 import { AppState } from '@/AppState.js';
 import BugsnaxCard from '@/components/BugsnaxCard.vue';
 import GrumpusesCard from '@/components/GrumpusesCard.vue';
+import QuestCard from '@/components/QuestCard.vue';
 import SaucesCard from '@/components/SaucesCard.vue';
 import ToolsCard from '@/components/ToolsCard.vue';
 import { bugsnaxLocationService } from '@/services/BugsnaxLocationsService.js';
 import { grumpusesLocationService } from '@/services/GrumpusLocationsService.js';
 import { locationsService } from '@/services/LocationsService.js';
-import { saucesService } from '@/services/SaucesService.js';
+import { sauceLocationsService } from '@/services/SauceLocationsService.js';
 import { toolsService } from '@/services/ToolsService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
@@ -78,7 +79,10 @@ async function getBugsnaxForThisLocation() {
 async function getGrumpusesForThisLocation() {
   try {
     const locationId = location.value.id
-    await grumpusesLocationService.getGrumpusLocationByLocationId(locationId)
+    await grumpusesLocationService.getGrumpusLocationsByLocationId(locationId)
+    if (grumpuses.value.length > 0) {
+      findQuestsForThisLocation()
+    }
   }
   catch (error) {
     Pop.error(error, 'Could not get grumpusesLocations for this location');
@@ -100,13 +104,26 @@ async function getToolsForThisLocation() {
 async function getSaucesForThisLocation() {
   try {
     const locationId = location.value.id
-    await saucesService.getSaucesByLocationId(locationId)
+    await sauceLocationsService.getSaucesByLocationId(locationId)
   }
   catch (error) {
     Pop.error(error, 'Could not get Sauces for this location');
     logger.log('Could not get Sauces for this location'.toUpperCase(), error)
   }
 }
+
+function findQuestsForThisLocation() {
+  try {
+    // debugger
+    const locationId = location.value.id
+    grumpusesLocationService.findQuestsForThisLocation(locationId)
+  }
+  catch (error) {
+    Pop.error(error, 'Could not get Sauces for this location');
+    logger.log('Could not get Sauces for this location'.toUpperCase(), error)
+  }
+}
+
 
 </script>
 
@@ -122,28 +139,46 @@ async function getSaucesForThisLocation() {
           <img class="cover-img mt-4" :src="location?.picture" :alt="`Picture of ${location?.name}`">
         </div>
         <div class="mt-3 fs-4">
-          <div class="row">
-            <p class="fw-bold">Bugsnax:</p>
-            <div v-for="bugsnak in bugsnax" :key="bugsnak?.id" class="col-md-2">
-              <BugsnaxCard :bugsnaxProp="bugsnak" />
+          <div v-if="bugsnax.length > 0">
+            <div class="row">
+              <p class="fw-bold">Bugsnax:</p>
+              <div v-for="bugsnak in bugsnax" :key="bugsnak?.id" class="col-md-2">
+                <BugsnaxCard :bugsnaxProp="bugsnak" />
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div>Grumpus:</div>
-            <div v-for="grumpus in grumpuses" :key="grumpus.id" class="col-md-3">
-              <GrumpusesCard :grumpusProp="grumpus" />
+          <div v-if="grumpuses.length > 0">
+            <div class="row">
+              <p class="fw-bold">Grumpuses:</p>
+              <div v-for="grumpus in grumpuses" :key="grumpus.id" class="col-md-3">
+                <GrumpusesCard :grumpusProp="grumpus" />
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div>Tools</div>
-            <div v-for="tool in tools" :key="tool.id" class="col-md-3">
-              <ToolsCard :toolsProp="tool" />
+          <div v-if="tools.length > 0">
+            <div class="row">
+              <p class="fw-bold">Tools:</p>
+              <div v-for="tool in tools" :key="tool.id" class="col-md-3">
+                <ToolsCard :toolsProp="tool" />
+              </div>
             </div>
           </div>
-          <div>sauces</div>
-          <!-- <div v-for="sauce in sauces" :key="sauce.id" class="row col-md-3">
-            <SaucesCard :sauceProp="sauce" />
-          </div> -->
+          <div v-if="sauces.length > 0">
+            <div class="row">
+              <p class="fw-bold">Sauces:</p>
+              <div v-for="sauce in sauces" :key="sauce.id" class="row col-md-3">
+                <SaucesCard :sauceProp="sauce" />
+              </div>
+            </div>
+          </div>
+          <div v-if="quests.length > 0">
+            <div class="row">
+              <p class="fw-bold">Quests:</p>
+              <div v-for="quest in quests" :key="quest.id" class="row col-md-3">
+                <QuestCard :questProp="quest" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

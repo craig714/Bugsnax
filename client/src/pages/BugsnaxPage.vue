@@ -14,7 +14,6 @@ const bugsnax = computed(() => AppState.bugsnax)
 
 
 onMounted(() => {
-  AppState.activeLocation = null
   AppState.bugsnax = []
   getAllBugsnax()
 })

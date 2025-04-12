@@ -18,14 +18,14 @@ import { Location } from "@/models/Location.js"
 class LocationsService {
   async getLocationById(locationId) {
     const response = await api.get(`api/locations/${locationId}`)
-    logger.log('getLocationById returned ', response.data)
+    // logger.log('getLocationById returned ', response.data)
   }
   async getAllLocations() {
     const response = await api.get('api/locations')
     const locations = response.data.map(pojo => new Location(pojo))
     // logger.log('getAllLocations returned ', locations)
     AppState.locations = locations
-    logger.log('AppState.locations is (get)', AppState.locations)
+    // logger.log('AppState.locations is (get)', AppState.locations)
     // return locations
   }
   // NOTE Getting location by name for now until we can figure out a good way to send the location.id
@@ -33,11 +33,11 @@ class LocationsService {
   //   const response = api.get
   // }
   setActiveLocation(locationName) {
-    logger.log('AppState.locations is (set)', AppState.locations)
+    // logger.log('AppState.locations is (set)', AppState.locations)
     const activeLocation = AppState.locations.find(theLocation => theLocation.name == locationName)
     // logger.log('findLocationByName returned ', location)
     AppState.activeLocation = activeLocation
-    logger.log('AppState.activeLocation is now ', AppState.activeLocation)
+    // logger.log('AppState.activeLocation is now ', AppState.activeLocation)
   }
 
   async createLocation(locationData) {
