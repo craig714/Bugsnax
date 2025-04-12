@@ -5,6 +5,7 @@ import { logger } from "@/utils/Logger.js"
 
 class SaucesService {
 
+
   async createSauce(sauceData) {
     const response = await api.post('api/sauces', sauceData)
     const sauce = new Sauce(response.data)
@@ -14,7 +15,7 @@ class SaucesService {
 
   async getAllSauces() {
     const response = await api.get(`api/sauces`)
-    // logger.log('Got All sauces!', response.data)
+    logger.log('Got All sauces!', response.data)
     const sauce = response.data.map(pojo => new Sauce(pojo))
     AppState.sauces = sauce
   }
@@ -22,7 +23,7 @@ class SaucesService {
 
   async getSaucesById(sauceId) {
     const response = await api.get(`api/sauces/${sauceId}`)
-    // logger.log('Got Sauce by Id', response.data)
+    logger.log('Got Sauce by Id', response.data)
     const sauce = new Sauce(response.data)
     AppState.activeSauce = sauce
 

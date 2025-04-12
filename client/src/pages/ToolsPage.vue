@@ -12,7 +12,6 @@ import toolsImg from '@/assets/img/thumb-1920-523671.jpg'
 const tools = computed(() => AppState.tools)
 
 onMounted(() => {
-  AppState.tools = []
   getAllTools()
 })
 
@@ -34,7 +33,7 @@ async function getAllTools() {
 <template>
 
   <body :style="{ backgroundImage: `url(${toolsImg})` }">
-    <div class="container">
+ <div class="container">
       <div class="row">
         <div v-for="tool in tools" :key="tool.id" class="col-12 col-md-3">
           <ToolsCard :toolsProp="tool" />

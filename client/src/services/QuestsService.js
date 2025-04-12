@@ -6,14 +6,14 @@ import { AppState } from "@/AppState.js"
 class QuestsService {
   async getAllQuests() {
     const response = await api.get('api/quests')
-    // logger.log('getAllQuests returned ', response.data)
+    logger.log('getAllQuests returned ', response.data)
     const quests = response.data.map(pojo => new Quest(pojo))
     AppState.quests = quests
 
   }
   async getQuestById(questId) {
     const response = await api.get(`api/quests/${questId}`)
-    // logger.log('getQuestById returned ', response.data)
+    logger.log('getQuestById returned ', response.data)
     const quest = new Quest(response.data)
 
     // this.setActiveQuest(quest)

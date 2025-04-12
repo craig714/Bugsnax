@@ -15,7 +15,6 @@ const route = useRoute()
 
 
 onMounted(() => {
-  AppState.activeTool = null
   getToolById()
 })
 
@@ -35,22 +34,21 @@ async function getToolById() {
 
 
 <template>
-
   <body class="arco-font arco-font-shadow" :style="{ backgroundImage: `url(${toolsImg})` }">
-    <div v-if="tool" class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="fw-bold fs-1 d-flex justify-content-center">
-            {{ tool.name }}
-          </div>
-          <img class="cover-img" :src="tool.picture" alt="">
+  <div v-if="tool" class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="fw-bold fs-1 d-flex justify-content-center">
+          {{ tool.name }}
         </div>
-        <div class="mt-5 fs-4">
-          <p class="fw-bold">Description:</p> <span>{{ tool.description }}</span>
-        </div>
+        <img class="cover-img" :src="tool.picture" alt="">
+      </div>
+      <div class="mt-5 fs-4">
+        <p class="fw-bold">Description:</p> <span>{{ tool.description }}</span>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </template>
 
 

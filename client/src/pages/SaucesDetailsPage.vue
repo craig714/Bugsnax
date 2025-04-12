@@ -16,8 +16,6 @@ const route = useRoute()
 
 
 onMounted(() => {
-  AppState.sauceLocations = []
-  AppState.activeSauce = null
   getSaucesById()
   getLocationBySauceId()
 })
@@ -55,31 +53,30 @@ async function getSaucesById() {
 
 
 <template>
-
   <body class="arco-font arco-font-shadow" :style="{ backgroundImage: `url(${bugsnaxSauces})` }">
-    <div v-if="sauces" class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="fw-bold fs-1 d-flex justify-content-center">
-            {{ sauces.name }}
+  <div v-if="sauces" class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="fw-bold fs-1 d-flex justify-content-center">
+          {{ sauces.name }}
+        </div>
+        <img class="cover-img .pic-boarder" :src="sauces.picture" alt="">
+      </div>
+      <div class=" mt-5 fs-4">
+        <p class="fw-bold">Location/Locations:</p>
+        <div v-if="saucesLocations && saucesLocations.length > 0">
+          <div v-for="location in saucesLocations" :key="location.locationId">
+            {{ location.location.name }}
           </div>
-          <img class="cover-img .pic-boarder" :src="sauces.picture" alt="">
         </div>
-        <div class=" mt-5 fs-4">
-          <p class="fw-bold">Location/Locations:</p>
-          <div v-if="saucesLocations && saucesLocations.length > 0">
-            <div v-for="location in saucesLocations" :key="location.locationId">
-              {{ location.location.name }}
-            </div>
-          </div>
-          <p v-else>No known location</p>
-        </div>
-        <div class="mt-5 fs-4">
-          <p>Description:</p> <span>{{ sauces.description }}</span>
-        </div>
+        <p v-else>No known location</p>
+      </div>
+      <div class="mt-5 fs-4">
+        <p>Description:</p> <span>{{ sauces.description }}</span>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </template>
 
 
@@ -91,4 +88,8 @@ async function getSaucesById() {
   border-radius: 10px;
   border: 3px solid #ffffff
 }
+
+
+
+
 </style>

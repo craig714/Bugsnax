@@ -15,9 +15,9 @@ const grumpusLocations = computed(() => AppState.grumpusLocations)
 
 
 onMounted(() => {
-  AppState.activeGrumpus = null
   getGrumpusesById()
   getLocationsByGrumpusId()
+  AppState.activeGrumpus = null
 })
 
 

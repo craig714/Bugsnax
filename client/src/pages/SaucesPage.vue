@@ -13,7 +13,6 @@ const sauces = computed(() => AppState.sauces)
 
 
 onMounted(() => {
-  AppState.sauces = []
   getAllSauces()
 })
 
