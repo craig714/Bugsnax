@@ -78,7 +78,8 @@ async function getBugsnaxForThisLocation() {
 async function getGrumpusesForThisLocation() {
   try {
     const locationId = location.value.id
-    await grumpusesLocationService.getGrumpusLocationByLocationId(locationId)
+    await grumpusesLocationService.getGrumpusLocationsByLocationId(locationId)
+    findQuestsForThisLocation()
   }
   catch (error) {
     Pop.error(error, 'Could not get grumpusesLocations for this location');
@@ -107,6 +108,19 @@ async function getSaucesForThisLocation() {
     logger.log('Could not get Sauces for this location'.toUpperCase(), error)
   }
 }
+
+function findQuestsForThisLocation() {
+  try {
+    // debugger
+    const locationId = location.value.id
+    grumpusesLocationService.findQuestsForThisLocation(locationId)
+  }
+  catch (error) {
+    Pop.error(error, 'Could not get Sauces for this location');
+    logger.log('Could not get Sauces for this location'.toUpperCase(), error)
+  }
+}
+
 
 </script>
 
@@ -143,6 +157,11 @@ async function getSaucesForThisLocation() {
               <SaucesCard :sauceProp="sauce" />
             </div>
           </div>
+          <!-- <div class="row">
+            <div v-for="quest in quests" :key="quest.id" class="row col-md-3">
+              <SaucesCard :questProp="quest" />
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
