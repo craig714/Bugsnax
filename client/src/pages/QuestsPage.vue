@@ -13,6 +13,7 @@ const quests = computed(() => AppState.quests)
 
 
 onMounted(() => {
+  AppState.quests = []
   getAllQuests()
 })
 

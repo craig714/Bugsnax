@@ -13,6 +13,7 @@ import bugsnaxWallpaper from '@/assets/img/wp7480397-bugsnax-wallpapers.jpg'
 const grumpuses = computed(() => AppState.grumpuses)
 
 onMounted(() => {
+  AppState.grumpuses = []
   getAllGrumpuses()
 })
 
