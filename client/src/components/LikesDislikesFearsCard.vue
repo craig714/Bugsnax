@@ -13,7 +13,7 @@ import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 
 // NOTE using activeGrumpus seems to change the picture of the current bugsnax, look into make other AppState variables to store these so they don't interfere. Might need to copy existing getById functions and call them something else?
-const props = defineProps({
+defineProps({
   bugsnaxProp: { type: Bugsnax, required: true },
   grumpusProp: { type: Grumpus, required: true },
   sauceProp: { type: Sauce, required: true },
@@ -22,67 +22,67 @@ const props = defineProps({
 
 
 onMounted(() => {
-  choosePropType()
+  // choosePropType()
 })
 
 
-function choosePropType() {
-  try {
-    debugger
-    if (props.bugsnaxProp != null) getBugsnaxById()
-    else if (props.grumpusProp != null) getGrumpusesById()
-    else if (props.sauceProp != null) getSaucesById()
-    else if (props.toolsProp != null) getToolById()
-  }
-  catch (error) {
-    Pop.error(error);
-  }
-}
+// function choosePropType() {
+//   try {
+//     debugger
+//     if (props.bugsnaxProp != null) getBugsnaxById()
+//     else if (props.grumpusProp != null) getGrumpusesById()
+//     else if (props.sauceProp != null) getSaucesById()
+//     else if (props.toolsProp != null) getToolById()
+//   }
+//   catch (error) {
+//     Pop.error(error);
+//   }
+// }
 
-async function getBugsnaxById() {
-  try {
-    // logger.log('like is now ', like.value)
-    const bugsnaxId = props.bugsnaxProp.id
-    await bugsnaxService.getBugsnaxByIdLike(bugsnaxId)
-  }
-  catch (error) {
-    Pop.error(error, 'Could not get bugsnax by id');
-    logger.log('Could not get bugsnax by id'.toUpperCase(), error)
-  }
-}
-async function getGrumpusesById() {
-  try {
-    // logger.log('like is now ', like.value)
-    const grumpusId = props.grumpusProp.id
-    await grumpusesService.getGrumpusesByIdLike(grumpusId)
-  }
-  catch (error) {
-    Pop.error(error, 'Could not get grumpus by id');
-    logger.log('Could not get grumpus by id'.toUpperCase(), error)
-  }
-}
-async function getSaucesById() {
-  try {
-    // logger.log('like is now ', like.value)
-    const sauceId = props.sauceProp.id
-    await saucesService.getSaucesByIdLike(sauceId)
-  }
-  catch (error) {
-    Pop.error(error, 'Could not get bugsnax by id');
-    logger.log('Could not get bugsnax by id'.toUpperCase(), error)
-  }
-}
-async function getToolById() {
-  try {
-    // logger.log('like is now ', like.value)
-    const toolId = props.toolsProp.id
-    await toolsService.getToolByIdLike(toolId)
-  }
-  catch (error) {
-    Pop.error(error, 'Could not get bugsnax by id');
-    logger.log('Could not get bugsnax by id'.toUpperCase(), error)
-  }
-}
+// async function getBugsnaxById() {
+//   try {
+//     // logger.log('like is now ', like.value)
+//     const bugsnaxId = props.bugsnaxProp.id
+//     await bugsnaxService.getBugsnaxByIdLike(bugsnaxId)
+//   }
+//   catch (error) {
+//     Pop.error(error, 'Could not get bugsnax by id');
+//     logger.log('Could not get bugsnax by id'.toUpperCase(), error)
+//   }
+// }
+// async function getGrumpusesById() {
+//   try {
+//     // logger.log('like is now ', like.value)
+//     const grumpusId = props.grumpusProp.id
+//     await grumpusesService.getGrumpusesByIdLike(grumpusId)
+//   }
+//   catch (error) {
+//     Pop.error(error, 'Could not get grumpus by id');
+//     logger.log('Could not get grumpus by id'.toUpperCase(), error)
+//   }
+// }
+// async function getSaucesById() {
+//   try {
+//     // logger.log('like is now ', like.value)
+//     const sauceId = props.sauceProp.id
+//     await saucesService.getSaucesByIdLike(sauceId)
+//   }
+//   catch (error) {
+//     Pop.error(error, 'Could not get bugsnax by id');
+//     logger.log('Could not get bugsnax by id'.toUpperCase(), error)
+//   }
+// }
+// async function getToolById() {
+//   try {
+//     // logger.log('like is now ', like.value)
+//     const toolId = props.toolsProp.id
+//     await toolsService.getToolByIdLike(toolId)
+//   }
+//   catch (error) {
+//     Pop.error(error, 'Could not get bugsnax by id');
+//     logger.log('Could not get bugsnax by id'.toUpperCase(), error)
+//   }
+// }
 
 </script>
 
