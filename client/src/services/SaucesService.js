@@ -4,7 +4,6 @@ import { AppState } from "@/AppState.js"
 import { logger } from "@/utils/Logger.js"
 
 class SaucesService {
-
   async createSauce(sauceData) {
     const response = await api.post('api/sauces', sauceData)
     const sauce = new Sauce(response.data)
@@ -25,7 +24,6 @@ class SaucesService {
     // logger.log('Got Sauce by Id', response.data)
     const sauce = new Sauce(response.data)
     AppState.activeSauce = sauce
-
   }
 
 }

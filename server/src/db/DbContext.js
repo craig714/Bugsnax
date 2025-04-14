@@ -9,6 +9,7 @@ import { QuestSchema } from '../models/Quest.js';
 import { BugsnaxLocationSchema } from '../models/BugsnaxLocation.js';
 import { GrumpusLocationSchema } from '../models/GrumpusLocation.js';
 import { SauceLocationSchema } from '../models/SauceLocation.js';
+import { PreferenceSchema } from '../models/Preference.js';
 
 class DbContext {
   Account = mongoose.model('Account', AccountSchema)
@@ -21,6 +22,7 @@ class DbContext {
   BugsnaxLocations = mongoose.model('BugsnaxLocation', BugsnaxLocationSchema)
   GrumpusLocations = mongoose.model('GrumpusLocation', GrumpusLocationSchema)
   SauceLocations = mongoose.model('SauceLocation', SauceLocationSchema)
+  Preferences = mongoose.model('Preference', PreferenceSchema)
 }
 
 export const dbContext = new DbContext()
